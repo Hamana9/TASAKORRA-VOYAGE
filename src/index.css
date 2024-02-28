@@ -1,68 +1,266 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'AngleciaProDisplay'; /* You can name it whatever you want */
+  src: url('./assets/fonts/AngleciaProDisplay-Regular.otf') format('opentype');
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+ 
+@font-face {
+  font-family: 'RobotoSerif'; /* You can name it whatever you want */
+  src: url('./assets/fonts/RobotoSerif-VariableFont_GRAD\,opsz\,wdth\,wght.ttf') format('opentype');
 }
-a:hover {
-  color: #535bf2;
+ 
+@font-face {
+  font-family: 'FrankRuhl'; /* You can name it whatever you want */
+  src: url('./assets/fonts/FrankRuhlLibre-VariableFont_wght.ttf') format('opentype');
 }
 
 body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  max-width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  padding: 0;
+  margin: 0;
+  font-family: 'AngleciaProDisplay', sans-serif;
+  color: black;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/*Navbar Style*/
+.navbar {
+  background-color: #F0A9A9;
+}
+
+.navbar-brand h1{
+  font-size: 35px;
+  font-weight: 900;
+  margin-left: 10%;
+  font-family: 'AngleciaProDisplay', sans-serif;
+}
+
+.flexSB {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 3%;
+  
+}
+.icon {
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #FE0000;
+  color: #F0A9A9;
+  transition: 0.5s;
+  
+}
+.icon:hover {
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: #F0A9A9;
+  color: #FE0000;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
+/* for the drowpdown ICON */
+.dropdown-menu {
+  position: relative;
+  z-index: 1000;
 }
+
+
+.dropdown-menu ul{
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  
+  text-align: center;
+  background-color: #FE0000;
+  font-family:  'AngleciaProDisplay', sans-serif;
+  transition: all .75s ease-in-out;
+  list-style: none; 
+}
+.dropdown-item{
+  text-decoration: none;
+  
+}
+
+
+.dropdown-menu ul li a  {
+  color: var(--primary_color);
+  border-bottom: 1px solid transparent;    
+  transition: all .5s ease-in;
+  padding-bottom: .15rem;
+}
+
+.dropdown-menu ul li a:hover  {
+  border-color: var(--primary_color);
+}
+
+
+/* hero Section style */
+
+.heroTextStyle{
+font-family: 'RobotoSerif', sans-serif;
+}
+/* offres section*/
+.offres h1{
+  font-family: 'FrankRuhl', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+
+ /*card style*/
+ 
+ 
+.card {
+  position: relative;
+  box-shadow: 0px 0px 20px 1px #000c;
+  overflow: hidden;
+  border: 0px solid #000c;
+}
+
+
+
+
+.card:hover .card-body {
+  position: absolute;
+  z-index: 10;
+  bottom: 10px;
+}
+
+.card-head {
+  height: 450px;
+  margin: 0px 0px;
+  border: 0px solid red;
+  background: url(https://images.pexels.com/photos/1836580/pexels-photo-1836580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.6s linear;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%; /* Make the card body take full height */
+  text-align: center; /* Center text horizontally */
+  color: white;
+}
+
+/* .card-body {
+  display: none;
+  color: #eee;
+  transition: all 0.6s ease;
+ 
+} */
+
+.card-body .btn-warning {
+  position: absolute;
+  bottom: -70px;
+}
+.card:hover .card-body .btn-warning {
+  position: relative;
+  bottom: 0px;
+}
+
+.card > div.pseudo1 {
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.55);
+  left: -330px;
+  top: 0px;
+  height: 33.5%;
+  width: 100%;
+  z-index: 20;
+  transition: all 0.6s ease;
+}
+.card:hover > div.pseudo1 {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 33.5%;
+  width: 100%;
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 20;
+}
+
+.card > div.pseudo2 {
+  content: "";
+  position: absolute;
+  left: -330px;
+  top: 33.4%;
+  height: 33.6%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 20;
+  transition: all 0.6s ease;
+}
+.card:hover > div.pseudo2 {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 33.4%;
+  height: 33.6%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 20;
+}
+.card > div.pseudo3 {
+  content: "";
+  position: absolute;
+  left: -330px;
+  top: 66%;
+  height: 33.6%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 20;
+  transition: all 0.6s ease;
+}
+.card:hover > div.pseudo3 {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 67%;
+  height: 34%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 20;
+}
+
+.card-body .btn-warning {
+  position: absolute;
+  bottom: -70px;
+}
+.card:hover .card-body .btn-warning {
+  position: relative;
+  bottom: 0px;
+}
+
+.card:hover .card-body,
+.card:hover .card-text {
+  opacity: 1;
+  z-index: 30;
+  display: block;
+  /* margin-top: 10px;  */
+}
+
+.card:hover .card-head {
+  margin: 0;
+  border: none;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  transform: scale(1.5);
+}
+
+
+
