@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import tasakorraLogo from "../assets/logo/tasakorraLogo.png";
+import Card from "../components/Card";
 const Landing = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [widthLogo, setWidthLogo] = useState();
@@ -28,6 +29,36 @@ const Landing = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [isSmallScreen]);
+
+  //to genarate cards dynmcly
+
+  const generateCards = (totalCards) => {
+    const cards = [];
+    const cardsPerRow = isSmallScreen ? 2 : 4; // Determine the number of cards per row based on screen size
+    const numRows = Math.ceil(totalCards / cardsPerRow); // Calculate the number of rows needed
+    for (let i = 0; i < numRows; i++) {
+      const rowCards = [];
+      for (let j = 0; j < cardsPerRow; j++) {
+        const cardIndex = i * cardsPerRow + j;
+        if (cardIndex < totalCards) {
+          rowCards.push(
+            <Col key={cardIndex} xs={6} sm={6} md={6 / cardsPerRow} lg={3} xl={3} style={{marginBottom: "10%"}}>
+              <Card />
+            </Col>
+          );
+        } else {
+          rowCards.push(<Col key={cardIndex} />);
+        }
+      }
+      cards.push(<Row key={i} className="justify-content-center"style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+              }}>{rowCards}</Row>);
+    }
+    return cards;
+  };
+  
+  //styles
 
   const logoStyle = {
     width: widthLogo, // Set the desired width 250 ON PC 200 ON PHONE
@@ -107,8 +138,12 @@ const Landing = () => {
               </Row>
               <Row className="col-12">
                 <button style={buttonStyle}>
-                  <a href="#offres" style={{ color: 'white', textDecoration: 'none' }}>OFFRES</a>
-                  
+                  <a
+                    href="#offres"
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    OFFRES
+                  </a>
                 </button>
               </Row>
             </Col>
@@ -124,8 +159,6 @@ const Landing = () => {
               <img src={tasakorraLogo} alt="nuage logo" style={logoStyle} />
             </Col>
           </Row>
-
-        
         </div>
 
         <div style={wavyStyle}>
@@ -142,15 +175,7 @@ const Landing = () => {
             />
           </svg>
         </div>
-
       </div>
-
-      <section id="offres">
-        <div>
-          <h1>Nos Offres</h1>
-        </div>
-        
-      </section>
 
       <div
         style={{
@@ -158,8 +183,56 @@ const Landing = () => {
           width: "100vw",
         }}
       >
-        {/* Content of your hero section */}
-        <h1>Welcome to My Website</h1>
+        {/* Content of offres section  */}
+
+        <div className="d-flex flex-column align-items-center">
+          <Row
+            className="justify-content-center"
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Col className="text-center">
+              <h1 className="offres" id="offres">
+                Nos Offres
+              </h1>
+            </Col>
+          </Row>
+
+          {/* <Row
+            className="justify-content-center"
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Col>
+              <Card />
+            </Col>
+            <Col>
+              <Card />
+            </Col>
+            <Col>
+              <Card />
+            </Col>
+            <Col>
+              <Card />
+            </Col>
+          </Row> */}
+          {/* SECOND ROW OF CARDS */}
+          <div className="justify-content-center" >{generateCards(5)}</div>
+          
+          {/* <Row
+            className="justify-content-center"
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            {generateCards(5)}
+          </Row> */}
+        </div>
         {/*<p>This is a hero section example using Bootstrap and React</p> */}
       </div>
     </>
