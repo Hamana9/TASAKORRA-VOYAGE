@@ -42,7 +42,7 @@ const Landing = () => {
         const cardIndex = i * cardsPerRow + j;
         if (cardIndex < totalCards) {
           rowCards.push(
-            <Col key={cardIndex} xs={6} sm={6} md={6 / cardsPerRow} lg={3} xl={3} style={{marginBottom: "10%"}}>
+            <Col key={cardIndex} xs={6} sm={6} md={6 / cardsPerRow} lg={3} xl={3} style={{marginBottom: "5%"}}>
               <Card />
             </Col>
           );
@@ -83,7 +83,7 @@ const Landing = () => {
   const buttonStyle = {
     backgroundColor: "black",
     fontFamily: "AngleciaProDisplay",
-    padding: "1.5% 4%", // Add padding for a button-like appearance
+    padding: "1% 3%", // Add padding for a button-like appearance
     letterSpacing: "3px",
     textDecoration: "none", // Remove default link underline
     color: "white", // Set text color
@@ -198,40 +198,39 @@ const Landing = () => {
                 Nos Offres
               </h1>
             </Col>
+            
+          </Row>
+          <Row className="justify-content-center" style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              textAlign: "center",
+            }} >
+            <Col className="text-center">
+            <p style={{fontFamily : "AngleciaProDisplay",}}>Découvrez nos offres uniques. Réservez maintenant!</p>
+            </Col>
+          
+            
+            
           </Row>
 
-          {/* <Row
-            className="justify-content-center"
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <Col>
-              <Card />
-            </Col>
-            <Col>
-              <Card />
-            </Col>
-            <Col>
-              <Card />
-            </Col>
-            <Col>
-              <Card />
-            </Col>
-          </Row> */}
-          {/* SECOND ROW OF CARDS */}
-          <div className="justify-content-center" >{generateCards(5)}</div>
           
-          {/* <Row
-            className="justify-content-center"
-            style={{
+          {/* Spour generer les cartes */}
+          <Row className="justify-content-center" >{generateCards(5)}</Row>
+          <Row className="justify-content-center" style={{
               display: "flex",
               justifyContent: "space-evenly",
-            }}
-          >
-            {generateCards(5)}
-          </Row> */}
+            }}>
+                <button style={buttonStyle}>
+                  <a
+                    href="#offres"
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    OFFRES
+                  </a>
+                </button>
+              </Row>
+          
+         
         </div>
         {/*<p>This is a hero section example using Bootstrap and React</p> */}
       </div>

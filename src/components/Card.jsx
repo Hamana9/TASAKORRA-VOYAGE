@@ -3,13 +3,7 @@ import React, { useState, useEffect } from "react";
 const Card = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -74,7 +68,7 @@ const Card = () => {
             className="btn "
             style={{ color: "black", textDecoration: "none" }}
           >
-            Voir l'offre
+            Plus de détails 
           </a>
         </button>
       </div>
