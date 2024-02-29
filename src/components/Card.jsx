@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-
+import "./style/Card.css";
 const Card = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,11 +28,9 @@ const Card = () => {
     display: "inline-block",
     borderRadius: "5px",
     marginTop: "3%",
-
   };
 
   return (
-    
     <div
       className={`card ${isHovered ? "hovered" : ""}`}
       style={{
@@ -41,7 +38,6 @@ const Card = () => {
         height: isSmallScreen ? "17rem" : "25rem",
 
         // right: isSmallScreen ? "0%" : "20%",   height: ;
-
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -51,14 +47,22 @@ const Card = () => {
       <div className="pseudo3"></div>
       <div className="card-head"></div>
       <div className="card-body">
-        <h3 className="card-title" style={{
-          fontSize: isSmallScreen ? "1rem" : "1.5rem",
-          fontFamily : "AngleciaProDisplay",
-        }}>-Center of Turkiye-</h3>
-        <p className="card-text" style={{
-          fontSize: isSmallScreen ? "0.5rem" : "0.9rem",
-          fontFamily : "RobotoSerif",
-        }}>
+        <h3
+          className="card-title"
+          style={{
+            fontSize: isSmallScreen ? "1rem" : "1.5rem",
+            fontFamily: "AngleciaProDisplay",
+          }}
+        >
+          -Center of Turkiye-
+        </h3>
+        <p
+          className="card-text"
+          style={{
+            fontSize: isSmallScreen ? "0.5rem" : "0.9rem",
+            fontFamily: "RobotoSerif",
+          }}
+        >
           Ankara is Turkiye's capital and second-largest city, while Istanbul is
           its largest city
         </p>
@@ -68,7 +72,7 @@ const Card = () => {
             className="btn "
             style={{ color: "black", textDecoration: "none" }}
           >
-            Plus de détails 
+            Plus de détails
           </a>
         </button>
       </div>

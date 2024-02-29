@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import tasakorraLogo from "../assets/logo/tasakorraLogo.png";
 import Card from "../components/Card";
+import SliderPartenariat from "../components/Carousel";
+import ContactSmallBox from "../components/ContactSmallBox";
 const Landing = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [widthLogo, setWidthLogo] = useState();
@@ -42,7 +44,15 @@ const Landing = () => {
         const cardIndex = i * cardsPerRow + j;
         if (cardIndex < totalCards) {
           rowCards.push(
-            <Col key={cardIndex} xs={6} sm={6} md={6 / cardsPerRow} lg={3} xl={3} style={{marginBottom: "5%"}}>
+            <Col
+              key={cardIndex}
+              xs={6}
+              sm={6}
+              md={6 / cardsPerRow}
+              lg={3}
+              xl={3}
+              style={{ marginBottom: "5%", marginLeft: "3%" }}
+            >
               <Card />
             </Col>
           );
@@ -50,14 +60,23 @@ const Landing = () => {
           rowCards.push(<Col key={cardIndex} />);
         }
       }
-      cards.push(<Row key={i} className="justify-content-center"style={{
-                display: "flex",
-                justifyContent: "space-evenly",
-              }}>{rowCards}</Row>);
+      cards.push(
+        <Row
+          key={i}
+          className="justify-content-center"
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+            textAlign: "center",
+          }}
+        >
+          {rowCards}
+        </Row>
+      );
     }
     return cards;
   };
-  
+
   //styles
 
   const logoStyle = {
@@ -89,7 +108,7 @@ const Landing = () => {
     color: "white", // Set text color
     display: "inline-block", // Make it inline-block to set a specific width
     borderRadius: "20px", // Add rounded corners
-    marginTop: "3%",
+    //marginTop: "3%",
   };
 
   return (
@@ -137,7 +156,7 @@ const Landing = () => {
                 </h3>
               </Row>
               <Row className="col-12">
-                <button style={buttonStyle}>
+                <button style={{ ...buttonStyle, marginTop: "30%" }}>
                   <a
                     href="#offres"
                     style={{ color: "white", textDecoration: "none" }}
@@ -198,41 +217,107 @@ const Landing = () => {
                 Nos Offres
               </h1>
             </Col>
-            
           </Row>
-          <Row className="justify-content-center" style={{
+          <Row
+            className="justify-content-center"
+            style={{
               display: "flex",
               justifyContent: "space-evenly",
               textAlign: "center",
-            }} >
+            }}
+          >
             <Col className="text-center">
-            <p style={{fontFamily : "AngleciaProDisplay",}}>Découvrez nos offres uniques. Réservez maintenant!</p>
+              <p style={{ fontFamily: "AngleciaProDisplay" }}>
+                Découvrez nos offres uniques. Réservez maintenant!
+              </p>
             </Col>
-          
-            
-            
           </Row>
 
-          
           {/* Spour generer les cartes */}
-          <Row className="justify-content-center" >{generateCards(5)}</Row>
-          <Row className="justify-content-center" style={{
+          <Row
+            className="justify-content-center"
+            style={{
+              //display: "block",
+              //justifyContent: "space-evenly",
+            }}
+          >
+            {generateCards(2)}
+          </Row>
+          <Row
+            className="justify-content-center"
+            style={{
               display: "flex",
               justifyContent: "space-evenly",
-            }}>
-                <button style={buttonStyle}>
-                  <a
-                    href="#offres"
-                    style={{ color: "white", textDecoration: "none" }}
-                  >
-                    OFFRES
-                  </a>
-                </button>
-              </Row>
-          
-         
+            }}
+          >
+            <button style={{ ...buttonStyle, marginBottom: "7%" }}>
+              <a
+                href="#offres"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                OFFRES
+              </a>
+            </button>
+          </Row>
+          <div className="d-flex flex-column align-items-center">
+            <Row
+              className="justify-content-center"
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+              }}
+            >
+              <Col className="text-center">
+                <h1 className="offres" id="partenaires">
+                  Nos partenariats
+                </h1>
+              </Col>
+            </Row>
+            <Row
+              className="justify-content-center"
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                textAlign: "center",
+              }}
+            >
+              <Col className="text-center">
+                <p style={{ fontFamily: "AngleciaProDisplay" }}>
+                  Partez en voyage avec nous et profitez d'offres
+                  exceptionnelles grâce à nos partenariats privilégiés!
+                </p>
+              </Col>
+            </Row>
+            <Row
+              className="justify-content-center"
+              style={{
+                display: "inline-block",
+                justifyContent: "center",
+                textAlign: "center",
+                width: "100%",
+                //transform: "translateX(80%)",
+              }}
+            >
+              <SliderPartenariat />
+            </Row>
+
+            <Row
+              className="justify-content-center col-12"
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                textAlign: "center",
+                width: "100%",
+              }}
+            >
+              <Col className="text-center" style={{marginTop: "5%", width: "100%",  display: "flex",
+                justifyContent: "space-evenly",
+                textAlign: "center",}}>
+                <ContactSmallBox />
+              </Col>
+            </Row>
+          </div>
         </div>
-        {/*<p>This is a hero section example using Bootstrap and React</p> */}
       </div>
     </>
   );
