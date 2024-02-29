@@ -4,6 +4,8 @@ import tasakorraLogo from "../assets/logo/tasakorraLogo.png";
 import Card from "../components/Card";
 import SliderPartenariat from "../components/Carousel";
 import ContactSmallBox from "../components/ContactSmallBox";
+import Footer from "../components/Footer";
+
 const Landing = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [widthLogo, setWidthLogo] = useState();
@@ -38,9 +40,13 @@ const Landing = () => {
     const cards = [];
     const cardsPerRow = isSmallScreen ? 2 : 4; // Determine the number of cards per row based on screen size
     const numRows = Math.ceil(totalCards / cardsPerRow); // Calculate the number of rows needed
+    const lastRowCards = totalCards % cardsPerRow; // Calculate the number of cards in the last row
     for (let i = 0; i < numRows; i++) {
       const rowCards = [];
-      for (let j = 0; j < cardsPerRow; j++) {
+      const isLastRow = i === numRows - 1; // Check if it's the last row
+      const numCardsInRow =
+        isLastRow && lastRowCards ? lastRowCards : cardsPerRow;
+      for (let j = 0; j < numCardsInRow; j++) {
         const cardIndex = i * cardsPerRow + j;
         if (cardIndex < totalCards) {
           rowCards.push(
@@ -48,7 +54,7 @@ const Landing = () => {
               key={cardIndex}
               xs={6}
               sm={6}
-              md={6 / cardsPerRow}
+              md={6 / numCardsInRow}
               lg={3}
               xl={3}
               style={{ marginBottom: "5%", marginLeft: "3%" }}
@@ -236,12 +242,14 @@ const Landing = () => {
           {/* Spour generer les cartes */}
           <Row
             className="justify-content-center"
-            style={{
-              //display: "block",
-              //justifyContent: "space-evenly",
-            }}
+            style={
+              {
+                //display: "block",
+                //justifyContent: "space-evenly",
+              }
+            }
           >
-            {generateCards(2)}
+            {generateCards(7)}
           </Row>
           <Row
             className="justify-content-center"
@@ -310,12 +318,35 @@ const Landing = () => {
                 width: "100%",
               }}
             >
-              <Col className="text-center" style={{marginTop: "5%", width: "100%",  display: "flex",
-                justifyContent: "space-evenly",
-                textAlign: "center",}}>
+              <Col
+                className="text-center"
+                style={{
+                  marginTop: "5%",
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                  textAlign: "center",
+                }}
+              >
                 <ContactSmallBox />
               </Col>
             </Row>
+            {/* <Row
+              className="justify-content-center col-12"
+              style={{
+                // display: "flex",
+                // justifyContent: "space-evenly",
+                // textAlign: "center",
+                // width: "100%",
+              }}
+            >
+
+              <Footer/>
+            </Row> */}
+            <div>
+              <Footer/>
+            </div>
+            
           </div>
         </div>
       </div>

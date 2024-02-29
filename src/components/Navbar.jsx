@@ -9,6 +9,7 @@ const NavbarTaskorra = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 768);
+      setDropdownOpen(false);
     };
 
     window.addEventListener("resize", handleResize);
@@ -53,13 +54,23 @@ const NavbarTaskorra = () => {
                   <ul>
                     
                     <li>
-                      <NavLink className="dropdown-item" to="/home">
-                        Home
+                      <NavLink className="dropdown-item" to="">
+                      Accueil
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink className="dropdown-item" to="/about">
-                        About
+                      <NavLink className="dropdown-item" to="">
+                      Offres
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink className="dropdown-item" to="">
+                      A propos
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink className="dropdown-item" to="">
+                        Contact
                       </NavLink>
                     </li>
                   </ul>
