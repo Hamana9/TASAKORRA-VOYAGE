@@ -14,8 +14,8 @@ const Landing = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
-      if (window.innerWidth < 768) {
+      setIsSmallScreen(window.innerWidth < 900);
+      if (window.innerWidth < 900) {
         setWidthLogo("200%");
         setLeftHeroSection("35%");
         setTitleSize("120%");
@@ -141,7 +141,7 @@ const Landing = () => {
               className="col-6"
               style={{
                 position: "relative",
-                right: isSmallScreen ? "0%" : "40%",
+                right: isSmallScreen ? "-5%" : "40%",
               }}
             >
               <Row className="col-12">
@@ -162,7 +162,7 @@ const Landing = () => {
                 </h3>
               </Row>
               <Row className="col-12">
-                <button style={{ ...buttonStyle, marginTop: "30%" }}>
+                <button style={{ ...buttonStyle, marginTop: "30%", padding: "" }}>
                   <a
                     href="#offres"
                     style={{ color: "white", textDecoration: "none" }}
@@ -177,7 +177,8 @@ const Landing = () => {
               className="col-6"
               style={{
                 position: "relative",
-                right: isSmallScreen ? "0%" : "20%",
+                right: isSmallScreen ? "-2%" : "20%",
+               
               }}
             >
               {" "}
@@ -258,12 +259,12 @@ const Landing = () => {
               justifyContent: "space-evenly",
             }}
           >
-            <button style={{ ...buttonStyle, marginBottom: "7%" }}>
+            <button style={{ ...buttonStyle, marginBottom: "7%", padding: "" }}>
               <a
                 href="#offres"
                 style={{ color: "white", textDecoration: "none" }}
               >
-                OFFRES
+                Voir plus
               </a>
             </button>
           </Row>
@@ -310,6 +311,20 @@ const Landing = () => {
             </Row>
 
             <Row
+            className="justify-content-center"
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Col className="text-center">
+              <h1 className="contacter" id="contacter">
+                Nous contacter
+              </h1>
+            </Col>
+          </Row>
+
+            <Row
               className="justify-content-center col-12"
               style={{
                 display: "flex",
@@ -321,7 +336,7 @@ const Landing = () => {
               <Col
                 className="text-center"
                 style={{
-                  marginTop: "5%",
+                  marginTop: "1%",
                   width: "100%",
                   display: "flex",
                   justifyContent: "space-evenly",
@@ -331,19 +346,8 @@ const Landing = () => {
                 <ContactSmallBox />
               </Col>
             </Row>
-            {/* <Row
-              className="justify-content-center col-12"
-              style={{
-                // display: "flex",
-                // justifyContent: "space-evenly",
-                // textAlign: "center",
-                // width: "100%",
-              }}
-            >
-
-              <Footer/>
-            </Row> */}
-            <div>
+           
+            <div >
               <Footer/>
             </div>
             

@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavbarTasakorra />
+        <NavbarTasakorra  className="fixed-top"/>
         {/* <Navbar /> */}
         {/* <div className="pt-5 mt-2"> */}
         <HomeRoutes />
