@@ -35,17 +35,7 @@ const About = () => {
     };
   }, [isSmallScreen]);
 
-  const buttonStyle = {
-    backgroundColor: "black",
-    fontFamily: "AngleciaProDisplay",
-    padding: "1% 3%", // Add padding for a button-like appearance
-    letterSpacing: "3px",
-    textDecoration: "none", // Remove default link underline
-    color: "white", // Set text color
-    display: "inline-block", // Make it inline-block to set a specific width
-    borderRadius: "20px", // Add rounded corners
-  };
-
+ 
   return (
     <>
       <HeroSection
@@ -58,6 +48,7 @@ const About = () => {
           height: "100vh",
           width: "100vw",
         }}
+        id="aboutSection"
       >
         <div className="d-flex flex-column align-items-center">
           <Row

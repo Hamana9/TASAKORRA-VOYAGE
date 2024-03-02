@@ -74,6 +74,7 @@ const HeroSection = ({title, desc, btnText}) => {
             style={{
               position: "relative",
               right: isSmallScreen ? "-5%" : "40%",
+              width: "75%"
             }}
           >
             <Row className="col-12" style={{textAlign: "center"}}>
@@ -89,8 +90,9 @@ const HeroSection = ({title, desc, btnText}) => {
                   fontSize: isSmallScreen ? "40%" : "100%", // Adjusted syntax
                   letterSpacing: "3px", // Adjusted syntax
                 }}
+                dangerouslySetInnerHTML={{ __html: desc.replace(/\n/g, "<br>") }}
               >
-                {desc}
+                
               </h3>
             </Row>
                 {
@@ -98,7 +100,7 @@ const HeroSection = ({title, desc, btnText}) => {
                     <i
                   className="fas fa-caret-down icon dropdown"
                   
-                > <a href="#sectionId"></a>
+                > <a href="#aboutSection"></a>
                 </i>
                   </Row>
                     
@@ -122,6 +124,8 @@ const HeroSection = ({title, desc, btnText}) => {
             style={{
               position: "relative",
               right: isSmallScreen ? "-2%" : "20%",
+
+              width: "40%"
             }}
           >
             {" "}

@@ -56,7 +56,7 @@ const NavbarTaskorra = () => {
         <div className="container-fluid flexSB fixed-top">
           <a
             className="navbar-brand"
-            href=""
+            href="/"
             style={{ textDecoration: "none" }}
           >
             <h1 style={{ marginTop: "0.4%", padding: "0", margin: "0" }}>
@@ -93,7 +93,7 @@ const NavbarTaskorra = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link"
-                        href="/apropos"
+                        href="/offres"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Offres
@@ -102,7 +102,7 @@ const NavbarTaskorra = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link"
-                        href=""
+                        href="/apropos"
                         onClick={() => setDropdownOpen(false)}
                       >
                         A propos
@@ -151,7 +151,7 @@ const NavbarTaskorra = () => {
                       <li>
                         <a
                           className="dropdown-item"
-                          href=""
+                          href="/offres"
                           onClick={() => setDropdownOpen(false)}
                         >
                           Offres
