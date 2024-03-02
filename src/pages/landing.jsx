@@ -6,7 +6,7 @@ import SliderPartenariat from "../components/Carousel";
 import ContactSmallBox from "../components/ContactSmallBox";
 import Footer from "../components/Footer";
 
-const Landing = () => {
+const OffresDetail = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   
   useEffect(() => {
@@ -162,7 +162,7 @@ const Landing = () => {
               }}
             >
               <Col className="text-center">
-                <h1 className="offres" id="partenaires">
+                <h1 className="offres" >
                   Nos partenariats
                 </h1>
               </Col>
@@ -232,14 +232,20 @@ const Landing = () => {
               </Col>
             </Row>
 
-            <div>
-              <Footer />
-            </div>
+           
           </div>
         </div>
+        <div className="d-flex flex-column align-items-center" style={{bottom: "0",}}>
+            
+
+           
+              <Footer />
+         
+          </div>
       </div>
+      
     </>
   );
 };
 
-export default Landing;
+export default OffresDetail;

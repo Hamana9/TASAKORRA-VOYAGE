@@ -1,4 +1,4 @@
-// fixng the links => accueil + about done
+// fixng the links => accueil + about + offres done contacter ca marche mais il me prends pas vers la section et ce nest pa important
 // add links social medias 
 // fixing # decale
 
@@ -111,7 +111,7 @@ const NavbarTaskorra = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link"
-                        href="#contact"
+                        href="/#contacter"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Contact
@@ -169,7 +169,7 @@ const NavbarTaskorra = () => {
                       <li>
                         <a
                           className="dropdown-item"
-                          href="#contact"
+                          href="/#contacter"
                           onClick={() => setDropdownOpen(false)}
                         >
                           Contact

@@ -32,6 +32,7 @@ h1 {
 /*Navbar Style*/
 .navbar {
   background-color: #F0A9A9;
+  
 }
 
 .navbar-brand h1{
@@ -137,6 +138,7 @@ font-family: 'RobotoSerif', sans-serif;
   font-family: 'FrankRuhl', sans-serif;
   font-weight: 900;
   font-size: 2rem;
+  
 }
 
 

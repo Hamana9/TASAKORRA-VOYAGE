@@ -321,10 +321,15 @@ const About = () => {
             </Col>
           </Row>
 
-          <div>
-            <Footer />
-          </div>
+          
         </div>
+        <div className="d-flex flex-column align-items-center" style={{bottom: "0",}}>
+            
+
+           
+              <Footer />
+         
+          </div>
       </div>
     </>
   );

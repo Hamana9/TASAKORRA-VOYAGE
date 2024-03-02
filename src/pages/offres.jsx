@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import HeroSection from "../components/HeroSection";
 import Card from "../components/Card";
-import SliderPartenariat from "../components/Carousel";
-import ContactSmallBox from "../components/ContactSmallBox";
 import Footer from "../components/Footer";
 const offres = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -70,19 +68,7 @@ const offres = () => {
     return cards;
   };
 
-  //styles
 
-  const buttonStyle = {
-    backgroundColor: "black",
-    fontFamily: "AngleciaProDisplay",
-    padding: "1% 3%", // Add padding for a button-like appearance
-    letterSpacing: "3px",
-    textDecoration: "none", // Remove default link underline
-    color: "white", // Set text color
-    display: "inline-block", // Make it inline-block to set a specific width
-    borderRadius: "20px", // Add rounded corners
-    //marginTop: "3%",
-  };
 
   return (
     <>
@@ -131,14 +117,15 @@ const offres = () => {
           {/* pour generer les cartes */}
           <Row className="justify-content-center">{generateCards(36)}</Row>
           
-          <div className="d-flex flex-column align-items-center">
+          
+        </div>
+        <div className="d-flex flex-column align-items-center" style={{bottom: "0",}}>
             
 
            
               <Footer />
          
           </div>
-        </div>
       </div>
     </>
   );
