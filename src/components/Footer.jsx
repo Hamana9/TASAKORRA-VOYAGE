@@ -60,23 +60,32 @@ const Footer = () => {
                 <div className="">
                   <ul className="footer-social">
                     <li>
-                      <a href="#">
+                      <a  href="https://www.facebook.com/profile.php?id=100095501743429"
+                  target="_blank"
+                  rel="noopener noreferrer">
                         <i className="fab fa-facebook-f"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
-                        <i className="fab fa-instagram"></i>
+                      <a href="https://www.facebook.com/profile.php?id=100082879285234"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                        <i className="fab fa-facebook-f"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="tel:+2130770623431">
+                        <i className="fa-solid fa-phone"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a  href="whatsapp://send?phone=+2130796508756 ">
                         <i className="fab fa-whatsapp"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
-                        <i className="fa fa-solid fa-envelope"></i>
+                      <a href="mailto:tasakorrav@gmail.com">
+                      <i className="fa fa-solid fa-envelope"></i>
                       </a>
                     </li>
                   </ul>

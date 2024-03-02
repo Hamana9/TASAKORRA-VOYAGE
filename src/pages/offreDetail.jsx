@@ -99,7 +99,7 @@ const offres = () => {
               <img
                 src={Image}
                 alt=""
-                style={{ width: "400px", height: "400px" }}
+                style={{ width: "300px", height: "300px" }}
               />
             </Col>
             <Col>
