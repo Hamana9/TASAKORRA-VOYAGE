@@ -41,8 +41,16 @@ const generateCards = (cardsData) => {
     const [cardsData, setCardsData] = useState([]);
   
     useEffect(() => {
-      // Faites une requête pour obtenir les données JSON
-      fetch('/src/offres.json')
+    // Faites une requête pour obtenir les données JSON
+    //   fetch('/src/offres.json')
+    fetch('https://api-tasakorra.koyeb.app/offre', {
+        method: 'GET',
+
+        // headers: {
+        //     'Content-Type': 'application/json',
+        //     'Accept': '*/*'
+        // }
+        })
         .then(response => response.json())
         .then(data => setCardsData(data))
         .catch(error => console.error('Erreur lors de la récupération des données:', error));

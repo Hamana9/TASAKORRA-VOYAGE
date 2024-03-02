@@ -9,7 +9,7 @@ const offres = () => {
 
   useEffect(() => {
     // Faites une requête pour obtenir les données JSON
-    fetch("/src/offres.json")
+    fetch("https://api-tasakorra.koyeb.app/offre")
       .then((response) => response.json())
       .then((data) => setCardsData(data))
       .catch((error) =>
