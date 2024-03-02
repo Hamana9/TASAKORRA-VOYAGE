@@ -23,7 +23,24 @@
     height: 100%;
     object-fit: cover; /* Ensure the entire image is visible within the slide */
   }
+  /*Titles*/
+  .slideshowTitle{
+    text-align: center;
+    max-width: 100%;
+  }
+  .slideshowTitle{
+    display: inline-block;
   
+    cursor: pointer;
+    margin: 10px 7px 0px;
+  
+  }
+
+  
+  .slideshowTitle.active {
+    font-family: "FrankRuhl";
+    font-weight: bold;
+  }
   /* Buttons */
   
   .slideshowDots {

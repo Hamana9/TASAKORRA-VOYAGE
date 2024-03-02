@@ -1,26 +1,17 @@
+// fixer l href
+
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import tasakorraLogo from "../assets/logo/tasakorraLogo.png";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 
 const HeroSection = ({title, desc, btnText}) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [widthLogo, setWidthLogo] = useState();
-  const [leftHeroSection, setLeftHeroSection] = useState();
-  const [titleSize, setTitleSize] = useState(); //for the tasakorra size
 
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 900);
-      if (window.innerWidth < 900) {
-        setWidthLogo("200%");
-        setLeftHeroSection("35%");
-        setTitleSize("120%");
-      } else {
-        setWidthLogo("250%");
-        setLeftHeroSection("50%");
-        setTitleSize("420%");
-      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -32,7 +23,7 @@ const HeroSection = ({title, desc, btnText}) => {
   }, [isSmallScreen]);
 
   const logoStyle = {
-    width: widthLogo, // Set the desired width 250 ON PC 200 ON PHONE
+    width: isSmallScreen ? "200%" : "250%", // Set the desired width 250 ON PC 200 ON PHONE
     //height: "500%", // Set the desired height
     marginTop: "-50%",
   };
@@ -40,7 +31,7 @@ const HeroSection = ({title, desc, btnText}) => {
   const divStyle = {
     position: "absolute",
     top: "50%",
-    left: leftHeroSection, //50 ON PC 35 ON PHONE
+    left: isSmallScreen ? "35%" : "50%", //50 ON PC 35 ON PHONE
     transform: "translate(-50%, -50%)",
   };
 
@@ -83,35 +74,49 @@ const HeroSection = ({title, desc, btnText}) => {
             style={{
               position: "relative",
               right: isSmallScreen ? "-5%" : "40%",
+              width: "75%"
             }}
           >
-            <Row className="col-12">
-              <h1 style={{ letterSpacing: "5px", fontSize: titleSize }}>
+            <Row className="col-12" style={{textAlign: "center"}}>
+              <h1 style={{ letterSpacing:  "5px", fontSize: isSmallScreen ? "1.2rem" : "3em"}}>
                 {/* 120 on phone on pc */}
                 {title}
               </h1>
             </Row>
-            <Row className="col-12">
+            <Row className="col-12" style={{textAlign: "center"}}>
               <h3
                 className="heroTextStyle"
                 style={{
                   fontSize: isSmallScreen ? "40%" : "100%", // Adjusted syntax
-                  letterSpacing: isSmallScreen ? "3px" : "5px", // Adjusted syntax
+                  letterSpacing: "3px", // Adjusted syntax
                 }}
+                dangerouslySetInnerHTML={{ __html: desc.replace(/\n/g, "<br>") }}
               >
-                {desc}
+                
               </h3>
             </Row>
-            <Row className="col-12">
-              <button style={{ ...buttonStyle, marginTop: "30%", padding: "" }}>
-                <a
-                  href="#offres"
-                  style={{ color: "white", textDecoration: "none" }}
-                >
-                  {btnText}
-                </a>
-              </button>
-            </Row>
+                {
+                  btnText === "false" ? ( <Row className="col-12" style={{textAlign: "center"}}>
+                    <i
+                  className="fas fa-caret-down icon dropdown"
+                  
+                > <a href="#aboutSection"></a>
+                </i>
+                  </Row>
+                    
+                  ) : (<Row className="col-12">
+                  <button style={{ ...buttonStyle, marginTop: "30%", padding: "" }}>
+                    <a
+                      href="#offres"
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
+                      {btnText}
+                    </a>
+                  </button>
+                </Row>)
+                }
+            
+            
           </Col>
 
           <Col
@@ -119,6 +124,8 @@ const HeroSection = ({title, desc, btnText}) => {
             style={{
               position: "relative",
               right: isSmallScreen ? "-2%" : "20%",
+
+              width: "40%"
             }}
           >
             {" "}
@@ -137,7 +144,7 @@ const HeroSection = ({title, desc, btnText}) => {
           <path
             d="M1 51C34.3333 -15.6667 67.6667 -15.6667 101 51C134.333 117.667 167.667 117.667 201 51C234.333 -15.6667 267.667 -15.6667 301 51C334.333 117.667 367.667 117.667 401 51C434.333 -15.6667 467.667 -15.6667 501 51C534.333 117.667 567.667 117.667 601 51C634.333 -15.6667 667.667 -15.6667 701 51C734.333 117.667 767.667 117.667 801 51C834.333 -15.6667 867.667 -15.6667 901 51C934.333 117.667 967.667 117.667 1001 51"
             stroke="#C60001"
-            strokeWidth="2"
+            strokeWidth= {isSmallScreen ? "7" :"2" } 
           />
         </svg>
       </div>

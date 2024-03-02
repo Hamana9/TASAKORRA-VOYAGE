@@ -1,5 +1,4 @@
-// fixng the links
-// add links social medias 
+// fixng the links => accueil + about + offres done contacter ca marche mais il me prends pas vers la section et ce nest pa important
 // fixing # decale
 
 import React, { useState, useEffect, useRef } from "react";
@@ -56,7 +55,7 @@ const NavbarTaskorra = () => {
         <div className="container-fluid flexSB fixed-top">
           <a
             className="navbar-brand"
-            href=""
+            href="/"
             style={{ textDecoration: "none" }}
           >
             <h1 style={{ marginTop: "0.4%", padding: "0", margin: "0" }}>
@@ -84,7 +83,7 @@ const NavbarTaskorra = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link"
-                        href=""
+                        href="/"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Accueil
@@ -93,7 +92,7 @@ const NavbarTaskorra = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link"
-                        href="#offres"
+                        href="/offres"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Offres
@@ -102,7 +101,7 @@ const NavbarTaskorra = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link"
-                        href=""
+                        href="/apropos"
                         onClick={() => setDropdownOpen(false)}
                       >
                         A propos
@@ -111,7 +110,7 @@ const NavbarTaskorra = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link"
-                        href="#contact"
+                        href="/#contacter"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Contact
@@ -122,11 +121,33 @@ const NavbarTaskorra = () => {
               </>
             ) : (
               <>
-                <i className="fab fa-facebook-f icon"></i>
-                <i className="fab fa-instagram icon"></i>
-                <i className="fab fa-whatsapp icon"></i>
-                <i className="fa fa-solid fa-envelope icon"></i>
-                <i className="fab fa-youtube icon"></i>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100095501743429"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  
+                  <i className="fab fa-facebook-f icon"></i>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/profile.php?id=100082879285234"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  <i className="fab fa-facebook-f icon"></i>
+                </a>
+                <a href="tel:+2130770623431">
+                  <i class="fa-solid fa-phone icon"></i>
+                </a>
+                <a href="whatsapp://send?phone=+2130796508756 ">
+                  <i className="fab fa-whatsapp icon"></i>
+                </a>
+                <a href="mailto:tasakorrav@gmail.com">
+                  <i className="fa fa-solid fa-envelope icon"></i>
+                </a>
+
                 <i
                   className="fas fa-caret-down icon dropdown"
                   onClick={toggleDropdown}
@@ -142,7 +163,7 @@ const NavbarTaskorra = () => {
                       <li>
                         <a
                           className="dropdown-item"
-                          href="#offres"
+                          href="/"
                           onClick={() => setDropdownOpen(false)}
                         >
                           Accueil
@@ -151,7 +172,7 @@ const NavbarTaskorra = () => {
                       <li>
                         <a
                           className="dropdown-item"
-                          href=""
+                          href="/offres"
                           onClick={() => setDropdownOpen(false)}
                         >
                           Offres
@@ -160,7 +181,7 @@ const NavbarTaskorra = () => {
                       <li>
                         <a
                           className="dropdown-item"
-                          href=""
+                          href="/apropos"
                           onClick={() => setDropdownOpen(false)}
                         >
                           A propos
@@ -169,7 +190,7 @@ const NavbarTaskorra = () => {
                       <li>
                         <a
                           className="dropdown-item"
-                          href="#contact"
+                          href="/#contacter"
                           onClick={() => setDropdownOpen(false)}
                         >
                           Contact

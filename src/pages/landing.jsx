@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
-import tasakorraLogo from "../assets/logo/tasakorraLogo.png";
+import HeroSection from "../components/HeroSection";
 import Card from "../components/Card";
 import SliderPartenariat from "../components/Carousel";
 import ContactSmallBox from "../components/ContactSmallBox";
 import Footer from "../components/Footer";
-import HeroSection from "../components/HeroSection";
-const Landing = () => {
+
+const OffresDetail = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   
   useEffect(() => {
@@ -130,15 +130,10 @@ const Landing = () => {
             </Col>
           </Row>
 
-          {/* Spour generer les cartes */}
+          {/* pour generer les cartes */}
           <Row
             className="justify-content-center"
-            style={
-              {
-                //display: "block",
-                //justifyContent: "space-evenly",
-              }
-            }
+            
           >
             {generateCards(7)}
           </Row>
@@ -167,7 +162,7 @@ const Landing = () => {
               }}
             >
               <Col className="text-center">
-                <h1 className="offres" id="partenaires">
+                <h1 className="offres" >
                   Nos partenariats
                 </h1>
               </Col>
@@ -197,7 +192,7 @@ const Landing = () => {
                 //transform: "translateX(80%)",
               }}
             >
-              <SliderPartenariat />
+              <SliderPartenariat ifLanding="true" />
             </Row>
 
             <Row
@@ -237,14 +232,20 @@ const Landing = () => {
               </Col>
             </Row>
 
-            <div>
-              <Footer />
-            </div>
+           
           </div>
         </div>
+        <div className="d-flex flex-column align-items-center" style={{bottom: "0",}}>
+            
+
+           
+              <Footer />
+         
+          </div>
       </div>
+      
     </>
   );
 };
 
-export default Landing;
+export default OffresDetail;
