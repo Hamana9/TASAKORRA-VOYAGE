@@ -1,5 +1,15 @@
 [
     {
+        "id": 1,
+        "titre": "Malaisie/Singapour",
+        "duree": "9 Nuit. 10 Jours",
+        "description": "Inclus:\n5 Nuit à Kuala Lumpur 4* HTL -en petit déjeuner \n4 Nuit à Singapour 4* HTL -en petit déjeuner\n+ Billet d'avion INT.: Kuala / Singapore \n+ Frais Visa registrement Singapore \n+ Journée City Tour Singapore / Déjeuner \n+ Journée City Tour Kuala Lumpur\n+ Journée Tour Kuala Genting Fun Highlands \n+ Tous les transferts par minibus /Limousine + Accueil et assistance a l'aéroports\n+ Tourism Charge Tax\n",
+        "tarifs": null,
+        "location": "Malaisie/Singapour",
+        "contact": "0796508756 #WhatsApp / #Viber\n0770623431\nPrès de palais d’or centre commercial les galeries 2eme étage Akid Lotfi Oran",
+        "remarque": null
+    },
+    {
         "id": 2,
         "titre": "Nouvel An 2024 #ISTANBUL",
         "duree": "8 Jours /7 Nuits  Hôtel 4 étoiles et 5 étoiles",
@@ -28,16 +38,6 @@
         "location": "Dubai / Singapore",
         "contact": "0796508756 #WhatsApp / #Viber\n0770623431\nPrès de palais d’or centre commercial les galeries 2eme étage Akid Lotfi Oran",
         "remarque": "[Billet d'avion International pas Inclus ]\n\n* Hotels 4 Étoiles * \nRoyal Concorde Hotel Royal  Hotel Majestic Hotel - Donatello Hotel (ou similar).\n"
-    },
-    {
-        "id": 1,
-        "titre": "Malaisie/Singapour",
-        "duree": "9 Nuit. 10 Jours",
-        "description": "Inclus:\n5 Nuit à Kuala Lumpur 4* HTL -en petit déjeuner \n4 Nuit à Singapour 4* HTL -en petit déjeuner\n+ Billet d'avion INT.: Kuala / Singapore \n+ Frais Visa registrement Singapore \n+ Journée City Tour Singapore / Déjeuner \n+ Journée City Tour Kuala Lumpur\n+ Journée Tour Kuala Genting Fun Highlands \n+ Tous les transferts par minibus /Limousine + Accueil et assistance a l'aéroports\n+ Tourism Charge Tax\n",
-        "tarifs": null,
-        "location": "Malaisie/Singapour",
-        "contact": "0796508756 #WhatsApp / #Viber\n0770623431\nPrès de palais d’or centre commercial les galeries 2eme étage Akid Lotfi Oran",
-        "remarque": null
     },
     {
         "id": 5,
@@ -100,7 +100,18 @@
         "remarque": "[Billet d'avion International pas Inclus]\n\n* Hotels 4 Étoiles *\nPenang :\nBayview Beach Resort - Rainbow Paradise Resort\n\nKuala Lumpur:\nSwiss Garden HTL - Verdant Hill HTL\nFurama HTL - Royal Hotel - Royale Ghulan Hotel\n\nLangkawi:\nLagoon Beach Resort - Century Beach Resort Holiday Villa Resort - Camar Beach Resort\n\n\n"
     },
     {
-        "id": 15,
+        "id": 11,
+        "titre": "Offre 1",
+        "duree": "1 mois",
+        "description": "Description de l offre 1",
+        "tarifs": "100.00",
+        "location": "Paris",
+        "contact": "contact@exemple.com",
+        "remarque": "Remarque pour l offre 1"
+    }
+    ,
+    {
+        "id": 12,
         "titre": "Offre 1",
         "duree": "1 mois",
         "description": "Description de l offre 1",

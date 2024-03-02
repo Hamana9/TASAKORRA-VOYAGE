@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style/Card.css";
-const Card = () => {
+const Card = ({titre, duree, idbtn}) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -55,7 +55,9 @@ const Card = () => {
             fontFamily: "AngleciaProDisplay",
           }}
         >
-          -Center of Turkiye-
+         {titre}
+
+         
         </h3>
         <p
           className="card-text"
@@ -64,12 +66,11 @@ const Card = () => {
             fontFamily: "RobotoSerif",
           }}
         >
-          Ankara is Turkiye's capital and second-largest city, while Istanbul is
-          its largest city
+         {idbtn} {duree}
         </p>
         <button style={buttonStyle}>
           <a
-            href="#"
+            href="/offres/{ibtn}"
             className="btn "
             style={{ color: "black", textDecoration: "none", fontFamily: "RobotoSerif",}}
           >

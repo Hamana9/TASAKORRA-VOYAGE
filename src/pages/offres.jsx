@@ -5,6 +5,17 @@ import Card from "../components/Card";
 import Footer from "../components/Footer";
 const offres = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [cardsData, setCardsData] = useState([]);
+
+  useEffect(() => {
+    // Faites une requête pour obtenir les données JSON
+    fetch("/src/offres.json")
+      .then((response) => response.json())
+      .then((data) => setCardsData(data))
+      .catch((error) =>
+        console.error("Erreur lors de la récupération des données:", error)
+      );
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,11 +32,11 @@ const offres = () => {
 
   //to genarate cards dynmcly
 
-  const generateCards = (totalCards) => {
+  const generateCards = (cardsData, isSmallScreen) => {
     const cards = [];
     const cardsPerRow = isSmallScreen ? 2 : 4; // Determine the number of cards per row based on screen size
-    const numRows = Math.ceil(totalCards / cardsPerRow); // Calculate the number of rows needed
-    const lastRowCards = totalCards % cardsPerRow; // Calculate the number of cards in the last row
+    const numRows = Math.ceil(cardsData.length / cardsPerRow); // Calculate the number of rows needed
+    const lastRowCards = cardsData.length % cardsPerRow; // Calculate the number of cards in the last row
     for (let i = 0; i < numRows; i++) {
       const rowCards = [];
       const isLastRow = i === numRows - 1; // Check if it's the last row
@@ -33,7 +44,8 @@ const offres = () => {
         isLastRow && lastRowCards ? lastRowCards : cardsPerRow;
       for (let j = 0; j < numCardsInRow; j++) {
         const cardIndex = i * cardsPerRow + j;
-        if (cardIndex < totalCards) {
+        if (cardIndex < cardsData.length) {
+          const card = cardsData[cardIndex];
           rowCards.push(
             <Col
               key={cardIndex}
@@ -44,7 +56,7 @@ const offres = () => {
               xl={3}
               style={{ marginBottom: "5%", marginLeft: "3%" }}
             >
-              <Card />
+              <Card titre={card.titre} duree={card.duree} btnId={card.id} />
             </Col>
           );
         } else {
@@ -67,8 +79,6 @@ const offres = () => {
     }
     return cards;
   };
-
-
 
   return (
     <>
@@ -115,17 +125,16 @@ const offres = () => {
           </Row>
 
           {/* pour generer les cartes */}
-          <Row className="justify-content-center">{generateCards(36)}</Row>
-          
-          
+          <Row className="justify-content-center">
+            {generateCards(cardsData, isSmallScreen)}
+          </Row>
         </div>
-        <div className="d-flex flex-column align-items-center" style={{bottom: "0",}}>
-            
-
-           
-              <Footer />
-         
-          </div>
+        <div
+          className="d-flex flex-column align-items-center"
+          style={{ bottom: "0" }}
+        >
+          <Footer />
+        </div>
       </div>
     </>
   );
