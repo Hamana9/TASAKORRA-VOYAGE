@@ -1,6 +1,7 @@
 import React from "react";
 import "./style/ContactSmallBox.css"
 const ContactSmallBox = () => (
+  
     <div className="container" id="contact" >
       <form action="https://fabform.io/f/{insert-form-id-here}" method="post">
         <div className="form-group">

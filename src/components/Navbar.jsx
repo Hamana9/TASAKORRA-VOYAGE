@@ -1,4 +1,4 @@
-// fixng the links
+// fixng the links => accueil + about done
 // add links social medias 
 // fixing # decale
 
@@ -84,7 +84,7 @@ const NavbarTaskorra = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link"
-                        href=""
+                        href="/"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Accueil
@@ -93,7 +93,7 @@ const NavbarTaskorra = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link"
-                        href="#offres"
+                        href="/apropos"
                         onClick={() => setDropdownOpen(false)}
                       >
                         Offres
@@ -142,7 +142,7 @@ const NavbarTaskorra = () => {
                       <li>
                         <a
                           className="dropdown-item"
-                          href="#offres"
+                          href="/"
                           onClick={() => setDropdownOpen(false)}
                         >
                           Accueil
@@ -160,7 +160,7 @@ const NavbarTaskorra = () => {
                       <li>
                         <a
                           className="dropdown-item"
-                          href=""
+                          href="/apropos"
                           onClick={() => setDropdownOpen(false)}
                         >
                           A propos

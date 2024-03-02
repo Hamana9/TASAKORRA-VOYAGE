@@ -142,6 +142,19 @@ font-family: 'RobotoSerif', sans-serif;
 
 
  
+/* the abou page style */
+.containerAbout{
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  /* max-width: 600px;*/
+  width: 80%;
+  text-align: justify;
+  margin: 0;
+  font-family: 'FrankRuhl', sans-serif;
+}
 
-
-
+.ulPartenariat li{
+  margin-bottom: 1%;
+}

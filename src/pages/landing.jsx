@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
-import tasakorraLogo from "../assets/logo/tasakorraLogo.png";
+import HeroSection from "../components/HeroSection";
 import Card from "../components/Card";
 import SliderPartenariat from "../components/Carousel";
 import ContactSmallBox from "../components/ContactSmallBox";
 import Footer from "../components/Footer";
-import HeroSection from "../components/HeroSection";
+
 const Landing = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   
@@ -130,15 +130,10 @@ const Landing = () => {
             </Col>
           </Row>
 
-          {/* Spour generer les cartes */}
+          {/* pour generer les cartes */}
           <Row
             className="justify-content-center"
-            style={
-              {
-                //display: "block",
-                //justifyContent: "space-evenly",
-              }
-            }
+            
           >
             {generateCards(7)}
           </Row>
@@ -197,7 +192,7 @@ const Landing = () => {
                 //transform: "translateX(80%)",
               }}
             >
-              <SliderPartenariat />
+              <SliderPartenariat ifLanding="true" />
             </Row>
 
             <Row
