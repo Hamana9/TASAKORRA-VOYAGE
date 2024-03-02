@@ -162,7 +162,9 @@ const Landing = () => {
                 </h3>
               </Row>
               <Row className="col-12">
-                <button style={{ ...buttonStyle, marginTop: "30%", padding: "" }}>
+                <button
+                  style={{ ...buttonStyle, marginTop: "30%", padding: "" }}
+                >
                   <a
                     href="#offres"
                     style={{ color: "white", textDecoration: "none" }}
@@ -178,7 +180,6 @@ const Landing = () => {
               style={{
                 position: "relative",
                 right: isSmallScreen ? "-2%" : "20%",
-               
               }}
             >
               {" "}
@@ -311,18 +312,18 @@ const Landing = () => {
             </Row>
 
             <Row
-            className="justify-content-center"
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <Col className="text-center">
-              <h1 className="contacter" id="contacter">
-                Nous contacter
-              </h1>
-            </Col>
-          </Row>
+              className="justify-content-center"
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+              }}
+            >
+              <Col className="text-center">
+                <h1 className="contacter" id="contacter">
+                  Nous contacter
+                </h1>
+              </Col>
+            </Row>
 
             <Row
               className="justify-content-center col-12"
@@ -346,11 +347,10 @@ const Landing = () => {
                 <ContactSmallBox />
               </Col>
             </Row>
-           
-            <div >
-              <Footer/>
+
+            <div>
+              <Footer />
             </div>
-            
           </div>
         </div>
       </div>

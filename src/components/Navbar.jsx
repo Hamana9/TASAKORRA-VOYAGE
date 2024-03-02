@@ -1,29 +1,43 @@
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+// fixng the links
+// add links social medias 
+// fixing # decale
+
+import React, { useState, useEffect, useRef } from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
 //import 'bootstrap/dist/css/bootstrap.min.css'; // Assurez-vous d'importer le fichier CSS de Bootstrap
-import { Navbar, Nav, NavDropdown } from "react-bootstrap"; // Importez les composants de navigation de Bootstrap
 
 const NavbarTaskorra = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const dropdownRef = useRef(null);
   useEffect(() => {
     const handleResize = () => {
+      const screenWidth = window.innerWidth;
       setIsSmallScreen(window.innerWidth < 900);
+      console.log("Screen width:", screenWidth);
       setDropdownOpen(false);
     };
 
     window.addEventListener("resize", handleResize);
     handleResize();
+    console.log("isSmallScreen:", isSmallScreen);
+    // Ajout d'un écouteur d'événement pour fermer le dropdown quand on clique à l'extérieur
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownOpen(false);
+    }
   };
 
   return (
@@ -40,18 +54,72 @@ const NavbarTaskorra = () => {
         }}
       >
         <div className="container-fluid flexSB fixed-top">
-          <NavLink
+          <a
             className="navbar-brand"
-            to=""
+            href=""
             style={{ textDecoration: "none" }}
           >
             <h1 style={{ marginTop: "0.4%", padding: "0", margin: "0" }}>
               Tasakorra
             </h1>
-          </NavLink>
+          </a>
           <div className="collapse navbar-collapse">
             {isSmallScreen ? (
-              <i className="fas fa-caret-down icon"></i>
+              <>
+                <i
+                  className="fas fa-caret-down icon dropdown"
+                  type="button"
+                  onClick={toggleDropdown}
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  style={{ backgroundColor: "#FE0000", color: "#F0A9A9" }}
+                >
+                  {/* <span className="navbar-toggler-icon"></span> */}
+                </i>
+                <div
+                  className={"dropdown-menu" + (dropdownOpen ? " show" : "")}
+                >
+                  <ul className="navbar-nav">
+                    <li className="nav-item">
+                      <a
+                        className="nav-link"
+                        href=""
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Accueil
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a
+                        className="nav-link"
+                        href="#offres"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Offres
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a
+                        className="nav-link"
+                        href=""
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        A propos
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a
+                        className="nav-link"
+                        href="#contact"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </>
             ) : (
               <>
                 <i className="fab fa-facebook-f icon"></i>
@@ -65,29 +133,47 @@ const NavbarTaskorra = () => {
                 ></i>
                 {dropdownOpen && (
                   <div
-                    className="dropdown-menu"
+                    className="dropdown-menu show"
+                    style={{ top: "50px" }}
                     aria-labelledby="navbarDropdown"
+                    ref={dropdownRef}
                   >
                     <ul>
                       <li>
-                        <NavLink className="dropdown-item" to="">
+                        <a
+                          className="dropdown-item"
+                          href="#offres"
+                          onClick={() => setDropdownOpen(false)}
+                        >
                           Accueil
-                        </NavLink>
+                        </a>
                       </li>
                       <li>
-                        <NavLink className="dropdown-item" to="">
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={() => setDropdownOpen(false)}
+                        >
                           Offres
-                        </NavLink>
+                        </a>
                       </li>
                       <li>
-                        <NavLink className="dropdown-item" to="">
+                        <a
+                          className="dropdown-item"
+                          href=""
+                          onClick={() => setDropdownOpen(false)}
+                        >
                           A propos
-                        </NavLink>
+                        </a>
                       </li>
                       <li>
-                        <NavLink className="dropdown-item" to="">
+                        <a
+                          className="dropdown-item"
+                          href="#contact"
+                          onClick={() => setDropdownOpen(false)}
+                        >
                           Contact
-                        </NavLink>
+                        </a>
                       </li>
                     </ul>
                   </div>
