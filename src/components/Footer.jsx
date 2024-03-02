@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col } from "react-bootstrap";
 
 import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -11,7 +10,7 @@ const Footer = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
+      setIsSmallScreen(window.innerWidth < 900);
     };
 
     window.addEventListener("resize", handleResize);
@@ -25,7 +24,10 @@ const Footer = () => {
   return (
     <>
       <section className="contact-area">
-        <div className="container">
+        <div
+          className="container"
+          style={{ marginTop: "1%", marginBottom: "1%" }}
+        >
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="contact-content text-center">
@@ -44,9 +46,17 @@ const Footer = () => {
                   <br />
                   Akid Lotfi-Oran.
                 </h6>
-                <h6>
-                  +213 7 70 62 34 31<span>|</span>+213 7 96 50 87 56
-                </h6>
+                {isSmallScreen ? (
+                  <h6>
+                    +213 7 70 62 34 31 <br /><span>~</span> <br />
+                    +213 7 96 50 87 56
+                  </h6>
+                ) : (
+                  <h6>
+                    +213 7 70 62 34 31<span>|</span>+213 7 96 50 87 56
+                  </h6>
+                )}
+
                 <div className="">
                   <ul className="footer-social">
                     <li>
@@ -78,9 +88,8 @@ const Footer = () => {
       </section>
       <footer>
         <p>
-          Copyright &copy; 2024{" "}
-          <img src={tasakorraLogo} alt=" " /> All
-          Rights Reserved.
+          Copyright &copy; 2024 <img src={tasakorraLogo} alt=" " /> All Rights
+          Reserved.
         </p>
       </footer>
     </>

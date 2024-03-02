@@ -24,8 +24,7 @@ body {
 }
 
 h1 {
-  padding: 0;
-  margin: 0;
+  
   font-family: 'AngleciaProDisplay', sans-serif;
   color: black;
 }
@@ -69,18 +68,42 @@ h1 {
 
 /* for the drowpdown ICON */
 .dropdown-menu {
-  position: relative;
+  position: absolute; /* Assurez-vous que la position est "absolute" */
+  top: 100%; /* Positionnez-le sous le bouton */
+  right: 3%;
   z-index: 1000;
+  display: none; /* Masquez-le par défaut */
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff; /* Couleur de fond */
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+.dropdown-menu.show {
+  display: block; /* Affichez-le lorsque la classe "show" est présente */
+  background-color: #ff202000;
+  border-color: #21252900;
+  
+  padding: 1%;
 }
 
 
 .dropdown-menu ul{
   display: flex;
   flex-direction: column;
-  gap: .75rem;
-  
+ 
+  gap: .85rem;
+ 
   text-align: center;
-  background-color: #FE0000;
+  background-color: #ff2020a0;
   font-family:  'AngleciaProDisplay', sans-serif;
   transition: all .75s ease-in-out;
   list-style: none; 
@@ -96,6 +119,7 @@ h1 {
   border-bottom: 1px solid transparent;    
   transition: all .5s ease-in;
   padding-bottom: .15rem;
+  text-decoration: none;
 }
 
 .dropdown-menu ul li a:hover  {
@@ -116,7 +140,7 @@ font-family: 'RobotoSerif', sans-serif;
 }
 
 
- /*card style*/
+
  
 
 

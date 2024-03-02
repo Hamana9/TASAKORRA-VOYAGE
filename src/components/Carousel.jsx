@@ -10,7 +10,7 @@ const SliderPartenariat = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
+      setIsSmallScreen(window.innerWidth < 900);
     };
 
     window.addEventListener("resize", handleResize);

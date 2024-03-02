@@ -6,7 +6,7 @@ const Card = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
+      setIsSmallScreen(window.innerWidth < 900);
     };
 
     window.addEventListener("resize", handleResize);
@@ -20,14 +20,15 @@ const Card = () => {
   const buttonStyle = {
     backgroundColor: "white",
     fontFamily: "RobotoSerif",
-    padding: "1.5% 4%",
-    letterSpacing: "3px",
+    padding: isSmallScreen ? "1.5% 4%" : "1.5% 4%",
+    letterSpacing: isSmallScreen ? "2px" : "3px",
     textDecoration: "none",
     color: "black",
     opacity: "80%",
     display: "inline-block",
     borderRadius: "5px",
     marginTop: "3%",
+    fontSize: isSmallScreen ? "0.8rem" : "1.5rem",
   };
 
   return (
@@ -70,7 +71,7 @@ const Card = () => {
           <a
             href="#"
             className="btn "
-            style={{ color: "black", textDecoration: "none" }}
+            style={{ color: "black", textDecoration: "none", fontFamily: "RobotoSerif",}}
           >
             Plus de détails
           </a>
