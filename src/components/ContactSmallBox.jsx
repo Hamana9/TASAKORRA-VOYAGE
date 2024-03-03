@@ -25,8 +25,8 @@ const ContactSmallBox = () => {
 
 
     try {
-      // const response = await fetch('https://api-tasakorra.koyeb.app/contact', {
-      const response = await fetch('http://localhost:3000/contact', {
+      const response = await fetch('https://api-tasakorra.koyeb.app/contact', {
+      // const response = await fetch('http://localhost:3000/contact', {
         
         method: 'POST',
         headers: {
