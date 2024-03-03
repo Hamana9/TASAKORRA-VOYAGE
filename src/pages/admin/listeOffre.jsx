@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Button, Table, Col, Container, Row, ListGroup } from "react-bootstrap";
 import "@fortawesome/fontawesome-free/css/all.css";
 import logo from "../../assets/logo/tasakorraLogo.png";
+import { Link } from 'react-router-dom';
+
 function Liste() {
   const [cardsData, setCardsData] = useState([]);
 
@@ -72,135 +74,135 @@ function Liste() {
     backgroundColor: "#FE0000",
   };
   return (
-  
-      <div
-        style={{
-          height: "100vh",
-          width: "100vw",
-        }}
-      >
-        <div className="d-flex flex-column align-items-center">
-          <Row
-            className="justify-content-center"
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <Col className="text-center">
-              <h1 className="offres">Tasakorra</h1>
-            </Col>
-          </Row>
-          <Row style={{ display: "flex", justifyContent: "center" }}>
-            <img src={logo} alt="" />
-          </Row>
-          <Row style={{ display: "flex", justifyContent: "center" }}>
-            <Col>
-              {" "}
-              <button
-                style={{
-                  ...buttonStyle,
-                  marginBottom: "7%",
-                  marginLeft: "-3%",
-                }}
-              >
-                <a
-                  href="/ajout"
-                  style={{ color: "white", textDecoration: "none" }}
-                >
-                  Ajouter
-                </a>
-              </button>
-            </Col>
-            <Col>
-              <button style={{ ...buttonStyle, marginBottom: "7%" }}>
-                <a href="/" style={{ color: "white", textDecoration: "none" }}>
-                  {" "}
-                  Se déconnecter{" "}
-                </a>
-              </button>
-            </Col>
-          </Row>
 
-          <Row
-            className="justify-content-center"
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <Col className="text-center">
-              <h1 className="offres">Liste Admine des Offres:</h1>
-            </Col>
-          </Row>
-          <Row style={{ display: "flex", justifyContent: "center" }}>
-            <Col>
-              {" "}
-              <button
-                style={{
-                  ...buttonStyle,
-                  marginBottom: "7%",
-                  marginLeft: "-3%",
-                }}
-              >
-                <a
-                  href="/liste"
-                  style={{ color: "white", textDecoration: "none" }}
-                >
-                  Actualiser
-                </a>
-              </button>
-            </Col>
-          </Row>
-          <Row style={{ display: "flex", justifyContent: "center" }}>
-            <div
-              className="container"
+    <div
+      style={{
+        height: "100vh",
+        width: "100vw",
+      }}
+    >
+      <div className="d-flex flex-column align-items-center">
+        <Row
+          className="justify-content-center"
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <Col className="text-center">
+            <h1 className="offres">Tasakorra</h1>
+          </Col>
+        </Row>
+        <Row style={{ display: "flex", justifyContent: "center" }}>
+          <img src={logo} alt="" />
+        </Row>
+        <Row style={{ display: "flex", justifyContent: "center" }}>
+          <Col>
+            {" "}
+            <button
               style={{
-                width: "90%",
-                padding: "2rem 0rem",
-                display: "flex",
-                justifyContent: "center",
+                ...buttonStyle,
+                marginBottom: "7%",
+                marginLeft: "-3%",
               }}
             >
-              <Table bordered>
-                <thead
-                  style={{ fontWeight: "bolder", color: "red", border: "3px" }}
-                >
-                  <tr>
-                    <th scope="col">Titre d'offre</th>
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody style={{ justifyContent: "start" }}>
-                  {cardsData.map((offer) => (
-                    <tr key={offer.id}>
-                      <td>{offer.titre}</td>
-                      <td>
-                        <button variant="primary" style={{ color: "#007BFF" }}>
-                          <i class="fa-regular fa-eye"></i>
-                        </button>
-                        {/* <button variant="success" style={{ color: "#28A745" }}>
+              <a
+                href="/ajout"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Ajouter
+              </a>
+            </button>
+          </Col>
+          <Col>
+            <button style={{ ...buttonStyle, marginBottom: "7%" }}>
+              <a href="/" style={{ color: "white", textDecoration: "none" }}>
+                {" "}
+                Se déconnecter{" "}
+              </a>
+            </button>
+          </Col>
+        </Row>
+
+        <Row
+          className="justify-content-center"
+          style={{
+            display: "flex",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <Col className="text-center">
+            <h1 className="offres">Liste Admine des Offres:</h1>
+          </Col>
+        </Row>
+        <Row style={{ display: "flex", justifyContent: "center" }}>
+          <Col>
+            {" "}
+            <button
+              style={{
+                ...buttonStyle,
+                marginBottom: "7%",
+                marginLeft: "-3%",
+              }}
+            >
+              <a
+                href="/liste"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Actualiser
+              </a>
+            </button>
+          </Col>
+        </Row>
+        <Row style={{ display: "flex", justifyContent: "center" }}>
+          <div
+            className="container"
+            style={{
+              width: "90%",
+              padding: "2rem 0rem",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Table bordered>
+              <thead
+                style={{ fontWeight: "bolder", color: "red", border: "3px" }}
+              >
+                <tr>
+                  <th scope="col">Titre d'offre</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody style={{ justifyContent: "start" }}>
+                {cardsData.map((offer) => (
+                  <tr key={offer.id}>
+                    <td>{offer.titre}</td>
+                    <td>
+                      <button variant="primary" style={{ color: "#007BFF" }}>
+                        <Link to={`/detail/${offer.id}`}><i class="fa-regular fa-eye" ></i></Link>
+                      </button>
+                      {/* <button variant="success" style={{ color: "#28A745" }}>
                           <i className="fas fa-edit"></i>
                         </button> */}
-                        <button
-                          variant="danger"
-                          style={{ color: "#DC3545" }}
-                          onClick={() =>
-                            handleDeleteOffer(offer.id, offer.titre)
-                          }
-                        >
-                          <i className="far fa-trash-alt"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </div>
-          </Row>
-        </div>
+                      <button
+                        variant="danger"
+                        style={{ color: "#DC3545" }}
+                        onClick={() =>
+                          handleDeleteOffer(offer.id, offer.titre)
+                        }
+                      >
+                        <i className="far fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+        </Row>
       </div>
-    
+    </div>
+
   );
 }
 

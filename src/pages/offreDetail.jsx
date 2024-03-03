@@ -1,12 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
-
+import { useParams } from 'react-router-dom';
 import Footer from "../components/Footer";
 
 import Image from "../assets/annonceImages/image.jpg";
-const offres = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
+const offres = () => {
+  const { id } = useParams();
+  console.log("id : "+id);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [cardsData, setCardsData] = useState(null);
+
+
+
+  useEffect(() => {
+    const fetchOffers = async () => {
+      try {
+        const response = await fetch("https://api-tasakorra.koyeb.app/offre");
+        if (!response.ok) {
+          throw new Error('Erreur lors de la récupération des données');
+        }
+        const data = await response.json();
+        // Filtrer les offres en fonction de l'ID
+        const filteredOffers = data.filter(offer => offer.id === id);
+        setCardsData(filteredOffers);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des données:", error);
+      }
+    };
+
+    fetchOffers();
+  }, [id]);
+
+  console.log("data : "+cardsData);
+  
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 900);

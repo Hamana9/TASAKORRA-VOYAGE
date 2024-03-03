@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import "./style/Card.css";
-const Card = ({titre, duree, idbtn}) => {
+
+
+const Card = ({ titre, duree, idbtn }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -55,9 +58,9 @@ const Card = ({titre, duree, idbtn}) => {
             fontFamily: "AngleciaProDisplay",
           }}
         >
-         {titre}
+          {titre}
 
-         
+
         </h3>
         <p
           className="card-text"
@@ -66,16 +69,22 @@ const Card = ({titre, duree, idbtn}) => {
             fontFamily: "RobotoSerif",
           }}
         >
-       {duree}
+          {duree}
         </p>
         <button style={buttonStyle}>
-          <a
+          {/* <a
             href="/offres/{ibtn}"
             className="btn "
             style={{ color: "black", textDecoration: "none", fontFamily: "RobotoSerif",}}
+          > */}
+          <Link to={`/detail/${idbtn}`}
+            className="btn "
+            style={{ color: "black", textDecoration: "none", fontFamily: "RobotoSerif", }}
           >
             Plus de détails
-          </a>
+          </Link>
+
+          {/* </a> */}
         </button>
       </div>
     </div>
