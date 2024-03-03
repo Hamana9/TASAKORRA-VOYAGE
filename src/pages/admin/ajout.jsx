@@ -19,7 +19,7 @@ function Ajout() {
   };
   return (
     <div className="container mt-5">
-      <h1>Liste des Offres</h1>
+      <h1>Ajouter une offre </h1>
       <Container className="mt-5">
         <Row>
           <Col md={3} style={{}}>
@@ -82,7 +82,7 @@ function Ajout() {
                   textAlign: "center",
                 }}
               >
-                <offreForm />
+                <OffreForm />
               </Col>
             </Row>
           </Col>
