@@ -28,9 +28,9 @@ function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Vérifier les informations de connexion
-    if (username === "admin" && password === "admin") {
+    if (username === "admin" && password === "admin" || username === "azizi@tasakorra.com" && password === "M2CIM" || username === "gomache@tasakorra.com" && password === "tasakorra&Admin1999" || username === "benabide@tasakorra.com" && password === "mehdi@Admin6790" || username === "hamana@tasakorra.com" && password === "narami&Admine89066" || username === "bendoukha@tasakura.com" && password === "espore&Admine78") {
       setLoggedIn(true);
-      //hna nzido list
+      
       navigate("/liste");
     } else {
       alert("Invalid username or password");
@@ -39,10 +39,10 @@ function Login() {
 
   const seConnecterStyle = {
 
-    marginTop:"30px",
-  color: "black",
-  backgroundColor: "#F0A9A9",
-  padding: "12px 30px",
+    marginTop: "30px",
+    color: "black",
+    backgroundColor: "#F0A9A9",
+    padding: "12px 30px",
     fontSize: "18px",
     border: "none",
     borderRadius: "25px",
@@ -52,9 +52,9 @@ function Login() {
   }
 
   return (
-    
 
-<div style={{ backgroundColor: "#F0A9A9", height: "100%", width: "100%", fontFamily: "FrankRuhl" }}>
+
+    <div style={{ backgroundColor: "#F0A9A9", height: "100%", width: "100%", fontFamily: "FrankRuhl" }}>
       <div
         className="d-flex flex-column align-items-center "
         style={{
@@ -89,61 +89,61 @@ function Login() {
           </Row>
 
           <form onSubmit={handleSubmit}>
-            <Row  style={{display:"flex", justifyContent: "flex-start", marginBottom:"5%"  }}>
-              <Col  style={{marginRight:"3%"}}>
-             
-                  <span
-                    className="input-group-text d-flex align-items-center justify-content-center"
-                    style={{ width: "30%", }}
-                  >
-                    <i
-                      className="fa fa-user"
-                      style={{ fontSize: "1.8rem", color:"#F0A9A9" }}
-                    ></i>
-                  </span>
-                  
-              
-                
+            <Row style={{ display: "flex", justifyContent: "flex-start", marginBottom: "5%" }}>
+              <Col style={{ marginRight: "3%" }}>
+
+                <span
+                  className="input-group-text d-flex align-items-center justify-content-center"
+                  style={{ width: "30%", }}
+                >
+                  <i
+                    className="fa fa-user"
+                    style={{ fontSize: "1.8rem", color: "#F0A9A9" }}
+                  ></i>
+                </span>
+
+
+
               </Col>
-              <Col   style={{ width: "120%" }}><input
-                    type="text"
-                    className="form-control"
-                    placeholder="Identifiant"
-                    value={username} onChange={(e) => setUsername(e.target.value)}
-                  /></Col>
+              <Col style={{ width: "120%" }}><input
+                type="text"
+                className="form-control"
+                placeholder="Identifiant"
+                value={username} onChange={(e) => setUsername(e.target.value)}
+              /></Col>
             </Row>
 
-            <Row style={{display:"flex", justifyContent: "flex-start"}}>
-              <Col  style={{marginRight:"3%"}}>
-                
-                  <span
-                    className="input-group-text d-flex align-items-center justify-content-center"
-                    style={{ width: "30%" }}
-                  >
-                    <i
-                      className="fa fa-lock"
-                      style={{ fontSize: "1.8rem" , color:"#F0A9A9"}}
-                    ></i>
-                  </span>
-                 
-                
+            <Row style={{ display: "flex", justifyContent: "flex-start" }}>
+              <Col style={{ marginRight: "3%" }}>
+
+                <span
+                  className="input-group-text d-flex align-items-center justify-content-center"
+                  style={{ width: "30%" }}
+                >
+                  <i
+                    className="fa fa-lock"
+                    style={{ fontSize: "1.8rem", color: "#F0A9A9" }}
+                  ></i>
+                </span>
+
+
               </Col>
               <Col style={{ width: "120%" }}>
-              <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Mot de passe"
-                    value={password} onChange={(e) => setPassword(e.target.value)}
-                  />
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Mot de passe"
+                  value={password} onChange={(e) => setPassword(e.target.value)}
+                />
               </Col>
             </Row>
 
 
-            
+
             <Row>
               {" "}
               <button type="submit" className=" seConnecterStyle  " style={seConnecterStyle}>
-              Se Connecter
+                Se Connecter
               </button>
             </Row>
           </form>
@@ -151,7 +151,7 @@ function Login() {
       </div>
     </div>
 
-    
+
   );
 }
 

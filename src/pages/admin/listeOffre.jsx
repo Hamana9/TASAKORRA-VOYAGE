@@ -178,9 +178,9 @@ function Liste() {
                         <button variant="primary" style={{ color: "#007BFF" }}>
                           <i class="fa-regular fa-eye"></i>
                         </button>
-                        <button variant="success" style={{ color: "#28A745" }}>
+                        {/* <button variant="success" style={{ color: "#28A745" }}>
                           <i className="fas fa-edit"></i>
-                        </button>
+                        </button> */}
                         <button
                           variant="danger"
                           style={{ color: "#DC3545" }}
