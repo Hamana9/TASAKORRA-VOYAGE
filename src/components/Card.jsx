@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import "./style/Card.css";
 
 
-const Card = ({ titre, duree, idbtn }) => {
+const Card = ({ titre, duree, btnId }) => {
+  console.log(titre, duree, btnId );
+
   const [isHovered, setIsHovered] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -77,7 +79,7 @@ const Card = ({ titre, duree, idbtn }) => {
             className="btn "
             style={{ color: "black", textDecoration: "none", fontFamily: "RobotoSerif",}}
           > */}
-          <Link to={`/detail/${idbtn}`}
+          <Link to={`/detail/${btnId}`}
             className="btn "
             style={{ color: "black", textDecoration: "none", fontFamily: "RobotoSerif", }}
           >

@@ -21,8 +21,10 @@ const offres = () => {
           throw new Error('Erreur lors de la récupération des données');
         }
         const data = await response.json();
+        console.log("data"+data);
         // Filtrer les offres en fonction de l'ID
         const filteredOffers = data.filter(offer => offer.id === id);
+        console.log("data filtred"+filteredOffers);
         setCardsData(filteredOffers);
       } catch (error) {
         console.error("Erreur lors de la récupération des données:", error);
