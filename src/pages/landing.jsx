@@ -8,7 +8,18 @@ import Footer from "../components/Footer";
 
 const OffresDetail = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  
+  const [cardsData, setCardsData] = useState([]);
+
+  useEffect(() => {
+    // Faites une requête pour obtenir les données JSON
+    fetch("https://api-tasakorra.koyeb.app/offre")
+      .then((response) => response.json())
+      .then((data) => setCardsData(data))
+      .catch((error) =>
+        console.error("Erreur lors de la récupération des données:", error)
+      );
+  }, []);
+
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 900);
@@ -25,11 +36,12 @@ const OffresDetail = () => {
 
   //to genarate cards dynmcly
 
-  const generateCards = (totalCards) => {
+  const generateHalfCards = (cardsData, isSmallScreen) => {
     const cards = [];
     const cardsPerRow = isSmallScreen ? 2 : 4; // Determine the number of cards per row based on screen size
-    const numRows = Math.ceil(totalCards / cardsPerRow); // Calculate the number of rows needed
-    const lastRowCards = totalCards % cardsPerRow; // Calculate the number of cards in the last row
+    const numRows = Math.ceil(cardsData.length / cardsPerRow); // Calculate the number of rows needed
+    const halfCards = Math.ceil(cardsData.length / 2); // Calculate the number of half cards
+    const lastRowCards = halfCards % cardsPerRow; // Calculate the number of cards in the last row
     for (let i = 0; i < numRows; i++) {
       const rowCards = [];
       const isLastRow = i === numRows - 1; // Check if it's the last row
@@ -37,7 +49,8 @@ const OffresDetail = () => {
         isLastRow && lastRowCards ? lastRowCards : cardsPerRow;
       for (let j = 0; j < numCardsInRow; j++) {
         const cardIndex = i * cardsPerRow + j;
-        if (cardIndex < totalCards) {
+        if (cardIndex < halfCards) { // Check if the card index is within the halfCards range
+          const card = cardsData[cardIndex];
           rowCards.push(
             <Col
               key={cardIndex}
@@ -48,7 +61,7 @@ const OffresDetail = () => {
               xl={3}
               style={{ marginBottom: "5%", marginLeft: "3%" }}
             >
-              <Card />
+              <Card titre={card.titre} duree={card.duree} btnId={card.id} />
             </Col>
           );
         } else {
@@ -71,6 +84,7 @@ const OffresDetail = () => {
     }
     return cards;
   };
+  
 
   //styles
 
@@ -131,11 +145,8 @@ const OffresDetail = () => {
           </Row>
 
           {/* pour generer les cartes */}
-          <Row
-            className="justify-content-center"
-            
-          >
-            {generateCards(7)}
+          <Row className="justify-content-center">
+            {generateHalfCards(cardsData, isSmallScreen)}
           </Row>
           <Row
             className="justify-content-center"
@@ -146,7 +157,7 @@ const OffresDetail = () => {
           >
             <button style={{ ...buttonStyle, marginBottom: "7%", padding: "" }}>
               <a
-                href="#offres"
+                href="/offres"
                 style={{ color: "white", textDecoration: "none" }}
               >
                 Voir plus
