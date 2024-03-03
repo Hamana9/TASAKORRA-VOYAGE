@@ -19,6 +19,7 @@ function Liste() {
   }, []);
 
   const handleDeleteOffer = async (id, titre) => {
+ 
     // Afficher une boîte de dialogue de confirmation
     const confirmation = window.confirm(
       `Êtes-vous sûr de vouloir supprimer l'offre  ${titre} ?`

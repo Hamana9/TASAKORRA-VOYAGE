@@ -105,7 +105,7 @@ const HeroSection = ({title, desc, btnText}) => {
                   </Row>
                     
                   ) : (<Row className="col-12">
-                  <button style={{ ...buttonStyle, marginTop: "30%", padding: "" }}>
+                  <button style={{ ...buttonStyle, marginTop: "30%" }}>
                     <a
                       href="#offres"
                       style={{ color: "white", textDecoration: "none" }}

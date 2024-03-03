@@ -155,7 +155,7 @@ const OffresDetail = () => {
               justifyContent: "space-evenly",
             }}
           >
-            <button style={{ ...buttonStyle, marginBottom: "7%", padding: "" }}>
+            <button style={{ ...buttonStyle, marginBottom: "7%",}}>
               <a
                 href="/offres"
                 style={{ color: "white", textDecoration: "none" }}
