@@ -25,14 +25,13 @@ const Card = ({ titre, duree, btnId }) => {
   const buttonStyle = {
     backgroundColor: "white",
     fontFamily: "RobotoSerif",
-    padding: isSmallScreen ? "1.5% 4%" : "1.5% 4%",
     letterSpacing: isSmallScreen ? "2px" : "3px",
     textDecoration: "none",
     color: "black",
     opacity: "80%",
     display: "inline-block",
     borderRadius: "5px",
-    marginTop: "3%",
+    //marginTop: "3%",
     fontSize: isSmallScreen ? "0.8rem" : "1.5rem",
   };
 
@@ -74,11 +73,7 @@ const Card = ({ titre, duree, btnId }) => {
           {duree}
         </p>
         <button style={buttonStyle}>
-          {/* <a
-            href="/offres/{ibtn}"
-            className="btn "
-            style={{ color: "black", textDecoration: "none", fontFamily: "RobotoSerif",}}
-          > */}
+      
           <Link to={`/detail/${btnId}`}
             className="btn "
             style={{ color: "black", textDecoration: "none", fontFamily: "RobotoSerif", }}

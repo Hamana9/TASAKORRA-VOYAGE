@@ -65,7 +65,12 @@ const OffresDetail = () => {
             </Col>
           );
         } else {
-          rowCards.push(<Col key={cardIndex} />);
+          rowCards.push(<Col xs={6}
+            sm={6}
+            md={6 / numCardsInRow}
+            lg={3}
+            xl={3}
+            style={{ marginBottom: "5%", marginLeft: "3%" }} key={cardIndex} />);
         }
       }
       cards.push(
