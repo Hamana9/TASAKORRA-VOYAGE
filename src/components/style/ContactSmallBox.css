@@ -45,7 +45,7 @@ input:focus, textarea:focus {
     background-color: #e0e0e0;
 }
 
-button {
+.footerBtnn button {
     background-color: black;
     color: white;
     padding: 12px 30px;

@@ -25,7 +25,7 @@ const ContactSmallBox = () => (
           <label htmlFor="message">Message:</label>
           <textarea id="message" name="message" required></textarea>
         </div>
-        <div className="form-group btn">
+        <div className="form-group btn footerBtnn">
           <button type="submit">Envoyer</button>
         </div>
       </form>

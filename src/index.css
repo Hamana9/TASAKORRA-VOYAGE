@@ -75,17 +75,17 @@ h1 {
   z-index: 1000;
   display: none; /* Masquez-le par défaut */
   float: left;
-  min-width: 10rem;
+  min-width: 9rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
   color: #212529;
-  text-align: left;
+  text-align: start;
   list-style: none;
   background-color: #fff; /* Couleur de fond */
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
 }
 
 .dropdown-menu.show {
@@ -93,7 +93,7 @@ h1 {
   background-color: #ff202000;
   border-color: #21252900;
   
-  padding: 1%;
+ 
 }
 
 
@@ -111,6 +111,7 @@ h1 {
 }
 .dropdown-item{
   text-decoration: none;
+  
   
 }
 
@@ -159,4 +160,16 @@ font-family: 'RobotoSerif', sans-serif;
 
 .ulPartenariat li{
   margin-bottom: 1%;
+}
+
+
+/* login style */
+
+
+
+
+.seConnecterStyle:hover{
+  cursor: pointer;
+  background-color: #F0A9A9;
+  color: #FE0000;
 }

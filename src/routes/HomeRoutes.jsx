@@ -5,7 +5,7 @@ import Offres from "../pages/offres";
 import OffresDetail from "../pages/offreDetail";
 // import Test from "../pages/test";
 import Login from "../pages/admin/login";
-import Liste from "../pages/admin/liste";
+// import Liste from "../pages/admin/liste";
 
 
 const HomeRoutes = () => {
@@ -16,8 +16,8 @@ const HomeRoutes = () => {
       <Route path="offres" element={<Offres />} />
       <Route path="detail" element={<OffresDetail/>} />
       {/* <Route path="test" element={<Test/>} /> */}
-      <Route path="login" element={<Login/>} />
-      <Route path="liste" element={<Liste/>} />
+       <Route path="login" element={<Login/>} />
+    {/*  <Route path="liste" element={<Liste/>} /> */}
     </Routes>
   );
 };

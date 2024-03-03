@@ -1,66 +1,194 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col, Form, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Row, Col, Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+import logo from "../../assets/logo/tasakorraLogo.png";
 
 function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false); // État pour suivre si l'utilisateur est connecté
-    const navigate = useNavigate();
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Vérifier les informations de connexion
-        if (username === 'admin' && password === 'admin') {
-            setLoggedIn(true);
-            navigate('/liste');
-        } else {
-            alert('Invalid username or password');
-        }
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false); // État pour suivre si l'utilisateur est connecté
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 900);
     };
 
+    window.addEventListener("resize", handleResize);
+    handleResize();
 
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isSmallScreen]);
 
-    return (
-        <div
-            style={{
-                height: "100vh",
-                width: "100vw",
-            }}
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Vérifier les informations de connexion
+    if (username === "admin" && password === "admin") {
+      setLoggedIn(true);
+      //hna nzido list
+      navigate("/offres");
+    } else {
+      alert("Invalid username or password");
+    }
+  };
+
+  const seConnecterStyle = {
+
+    marginTop:"30px",
+  color: "black",
+  backgroundColor: "#F0A9A9",
+  padding: "12px 30px",
+    fontSize: "18px",
+    border: "none",
+    borderRadius: "25px",
+    cursor: "pointer",
+    fontFamily: 'AngleciaProDisplay',
+
+  }
+
+  return (
+    
+
+<div style={{ backgroundColor: "#F0A9A9", height: "100%", width: "100%", fontFamily: "FrankRuhl" }}>
+      <div
+        className="d-flex flex-column align-items-center "
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: isSmallScreen ? "50%" : "50%", //50 ON PC 35 ON PHONE
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <Row
+          className="justify-content-around form-box container"
+          style={{
+            display: "inline-block",
+            justifyContent: "center",
+            opacity: "0.9",
+            borderRadius: "2%",
+            padding: "20px",
+            width: "380px",
+            height: "350px",
+            backgroundColor: "white",
+          }}
         >
-            <div className="container mt-5">
+          <Row
+            className="header-form"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: "15px",
+            }}
+          >
+            <img src={logo} alt="" style={{ width: "40%" }} />
+          </Row>
+
+          <form onSubmit={handleSubmit}>
+            <Row  style={{display:"flex", justifyContent: "flex-start", marginBottom:"5%"  }}>
+              <Col  style={{marginRight:"3%"}}>
+             
+                  <span
+                    className="input-group-text d-flex align-items-center justify-content-center"
+                    style={{ width: "30%", }}
+                  >
+                    <i
+                      className="fa fa-user"
+                      style={{ fontSize: "1.8rem", color:"#F0A9A9" }}
+                    ></i>
+                  </span>
+                  
+              
+                
+              </Col>
+              <Col   style={{ width: "120%" }}><input
+                    type="text"
+                    className="form-control"
+                    placeholder="Identifiant"
+                    value={username} onChange={(e) => setUsername(e.target.value)}
+                  /></Col>
+            </Row>
+
+            <Row style={{display:"flex", justifyContent: "flex-start"}}>
+              <Col  style={{marginRight:"3%"}}>
+                
+                  <span
+                    className="input-group-text d-flex align-items-center justify-content-center"
+                    style={{ width: "30%" }}
+                  >
+                    <i
+                      className="fa fa-lock"
+                      style={{ fontSize: "1.8rem" , color:"#F0A9A9"}}
+                    ></i>
+                  </span>
+                 
+                
+              </Col>
+              <Col style={{ width: "120%" }}>
+              <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Mot de passe"
+                    value={password} onChange={(e) => setPassword(e.target.value)}
+                  />
+              </Col>
+            </Row>
 
 
-                <Row>
-                    <Col>
-                        <h2>Login</h2>
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group controlId="formBasicUsername">
-                                <Form.Label>Username</Form.Label>
-                                <Form.Control type="text" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                            </Form.Group>
+            
+            <Row>
+              {" "}
+              <button type="submit" className=" seConnecterStyle  " style={seConnecterStyle}>
+              Se Connecter
+              </button>
+            </Row>
+          </form>
+        </Row>
+      </div>
+    </div>
 
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                            </Form.Group>
+    //     <div
+    //         style={{
+    //             height: "100vh",
+    //             width: "100vw",
+    //         }}
+    //     >
+    //         <div className="container mt-5">
 
-                            <Button variant="primary" type="submit">
-                                Login
-                            </Button>
-                        </Form>
-                    </Col>
-                    <Col>
-                        <div className="text-center">
-                            <img src="src\assets\logo\tasakorraLogo.png" alt="Logo" className="mb-3" style={{ width: '100px', height: '100px' }} />
-                            <p>Tassakorra</p>
-                        </div>
-                    </Col>
-                </Row>
+    //             <Row>
+    //                 <Col>
+    //                     <h2>Login</h2>
+    //                     <Form onSubmit={handleSubmit}>
+    //                         <Form.Group controlId="formBasicUsername">
+    //                             <Form.Label>Username</Form.Label>
+    //                             <Form.Control type="text" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} />
+    //                         </Form.Group>
 
-            </div>
-        </div>
-    );
+    //                         <Form.Group controlId="formBasicPassword">
+    //                             <Form.Label>Password</Form.Label>
+    //                             <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+    //                         </Form.Group>
+
+    //                         <Button variant="primary" type="submit">
+    //                             Login
+    //                         </Button>
+    //                     </Form>
+    //                 </Col>
+    //                 <Col>
+    //                     <div className="text-center">
+    //                         <img src="src\assets\logo\tasakorraLogo.png" alt="Logo" className="mb-3" style={{ width: '100px', height: '100px' }} />
+    //                         <p>Tassakorra</p>
+    //                     </div>
+    //                 </Col>
+    //             </Row>
+
+    //         </div>
+    //     </div>
+  );
 }
 
 export default Login;

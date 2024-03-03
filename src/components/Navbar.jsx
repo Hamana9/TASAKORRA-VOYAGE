@@ -62,7 +62,7 @@ const NavbarTaskorra = () => {
               Tasakorra
             </h1>
           </a>
-          <div className="collapse navbar-collapse">
+          <div className="collapse navbar-collapse" >
             {isSmallScreen ? (
               <>
                 <i
@@ -78,9 +78,10 @@ const NavbarTaskorra = () => {
                 </i>
                 <div
                   className={"dropdown-menu" + (dropdownOpen ? " show" : "")}
+                  
                 >
-                  <ul className="navbar-nav">
-                    <li className="nav-item">
+                  <ul className="navbar-nav" style={{textAlign: "start"}}>
+                    <li className="nav-item" style={{paddingTop: "8%"}}>
                       <a
                         className="nav-link"
                         href="/"
@@ -114,6 +115,15 @@ const NavbarTaskorra = () => {
                         onClick={() => setDropdownOpen(false)}
                       >
                         Contact
+                      </a>
+                    </li>
+                    <li className="nav-item" style={{paddingBottom: "8%"}}>
+                      <a
+                        className="nav-link"
+                        href="/login"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Connexion
                       </a>
                     </li>
                   </ul>
@@ -159,8 +169,8 @@ const NavbarTaskorra = () => {
                     aria-labelledby="navbarDropdown"
                     ref={dropdownRef}
                   >
-                    <ul>
-                      <li>
+                    <ul className="navbar-nav" style={{textAlign: "start"}}>
+                      <li style={{paddingTop: "8%"}}>
                         <a
                           className="dropdown-item"
                           href="/"
@@ -196,6 +206,15 @@ const NavbarTaskorra = () => {
                           Contact
                         </a>
                       </li>
+                      <li className="nav-item" style={{paddingBottom: "8%"}}>
+                      <a
+                        className="nav-link"
+                        href="/login"
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        Connexion
+                      </a>
+                    </li>
                     </ul>
                   </div>
                 )}
