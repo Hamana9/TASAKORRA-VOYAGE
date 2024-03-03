@@ -7,12 +7,10 @@ import Image from "../assets/annonceImages/image.jpg";
 
 const offres = () => {
   const { id } = useParams();
-  console.log("id : "+id);
+  console.log("id : " + id);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [cardsData, setCardsData] = useState(null);
-
-
-
+  const [cardsData, setCardsData] = useState([]);
+  
   useEffect(() => {
     const fetchOffers = async () => {
       try {
@@ -21,10 +19,8 @@ const offres = () => {
           throw new Error('Erreur lors de la récupération des données');
         }
         const data = await response.json();
-        console.log("data"+data);
         // Filtrer les offres en fonction de l'ID
-        const filteredOffers = data.filter(offer => offer.id === id);
-        console.log("data filtred"+filteredOffers);
+        const filteredOffers = data.filter(offer => offer.id ===  Number(id));
         setCardsData(filteredOffers);
       } catch (error) {
         console.error("Erreur lors de la récupération des données:", error);
@@ -33,9 +29,8 @@ const offres = () => {
 
     fetchOffers();
   }, [id]);
+  console.info(cardsData)
 
-  console.log("data : "+cardsData);
-  
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 900);
@@ -97,7 +92,8 @@ const offres = () => {
           >
             <Col className="text-center">
               <h1 className="offres" id="offres">
-                Titre de loffre
+                Titre de loffre :
+                {cardsData.titre}
               </h1>
             </Col>
           </Row>
@@ -121,7 +117,7 @@ const offres = () => {
               display: "flex",
               justifyContent: "space-evenly",
               textAlign: "center",
-              
+
             }}
           >
             <Col>
@@ -132,9 +128,9 @@ const offres = () => {
               />
             </Col>
             <Col>
-            <Row>
-                <p>Duree</p>
-            </Row>
+              <Row>
+                <p>Duree : </p>
+              </Row>
             </Col>
           </Row>
         </div>
