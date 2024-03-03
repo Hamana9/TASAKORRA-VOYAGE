@@ -78,7 +78,7 @@ const OffreForm = () => {
 
         <div className="form-group">
           <label htmlFor="tarifs">Tarifs : <span style={{ color: "red" }}> *</span></label>
-          <input type="text" id="tarifs" name="tarifs" value={formData.tarifs} onChange={handleChange} />
+          <input type="number" id="tarifs" name="tarifs" value={formData.tarifs} onChange={handleChange} />
         </div>
 
         <div className="form-group">
