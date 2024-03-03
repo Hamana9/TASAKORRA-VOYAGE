@@ -66,7 +66,7 @@ const Card = ({titre, duree, idbtn}) => {
             fontFamily: "RobotoSerif",
           }}
         >
-         {idbtn} {duree}
+       {duree}
         </p>
         <button style={buttonStyle}>
           <a

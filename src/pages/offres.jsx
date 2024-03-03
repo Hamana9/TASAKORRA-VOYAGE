@@ -54,7 +54,13 @@ const offres = () => {
               md={6 / numCardsInRow}
               lg={3}
               xl={3}
-              style={{ marginBottom: "5%", marginLeft: "3%" }}
+              style={{
+                marginBottom: "5%",
+                marginLeft: "3%",
+                display: "flex",
+                justifyContent: "space-evenly",
+                textAlign: "center",
+              }}
             >
               <Card titre={card.titre} duree={card.duree} btnId={card.id} />
             </Col>

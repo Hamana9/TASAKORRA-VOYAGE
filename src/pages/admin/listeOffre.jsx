@@ -58,7 +58,7 @@ function Liste() {
   };
 
   const buttonStyle = {
-    marginTop:"5%",
+    marginTop: "5%",
     backgroundColor: "black",
     fontFamily: "FrankRuhl",
     padding: "1% 3%", // Add padding for a button-like appearance
@@ -68,10 +68,10 @@ function Liste() {
     display: "inline-block", // Make it inline-block to set a specific width
     borderRadius: "20px", // Add rounded corners
     width: "180px",
-    backgroundColor: "#FE0000"
+    backgroundColor: "#FE0000",
   };
   return (
-    <>
+  
       <div
         style={{
           height: "100vh",
@@ -97,7 +97,11 @@ function Liste() {
             <Col>
               {" "}
               <button
-                style={{ ...buttonStyle, marginBottom: "7%",marginLeft:"-3%"}}
+                style={{
+                  ...buttonStyle,
+                  marginBottom: "7%",
+                  marginLeft: "-3%",
+                }}
               >
                 <a
                   href="/ajout"
@@ -108,9 +112,7 @@ function Liste() {
               </button>
             </Col>
             <Col>
-              <button
-                style={{ ...buttonStyle, marginBottom: "7%" }}
-              >
+              <button style={{ ...buttonStyle, marginBottom: "7%" }}>
                 <a href="/" style={{ color: "white", textDecoration: "none" }}>
                   {" "}
                   Se déconnecter{" "}
@@ -118,6 +120,7 @@ function Liste() {
               </button>
             </Col>
           </Row>
+
           <Row
             className="justify-content-center"
             style={{
@@ -127,6 +130,25 @@ function Liste() {
           >
             <Col className="text-center">
               <h1 className="offres">Liste Admine des Offres:</h1>
+            </Col>
+          </Row>
+          <Row style={{ display: "flex", justifyContent: "center" }}>
+            <Col>
+              {" "}
+              <button
+                style={{
+                  ...buttonStyle,
+                  marginBottom: "7%",
+                  marginLeft: "-3%",
+                }}
+              >
+                <a
+                  href="/liste"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Actualiser
+                </a>
+              </button>
             </Col>
           </Row>
           <Row style={{ display: "flex", justifyContent: "center" }}>
@@ -177,8 +199,7 @@ function Liste() {
           </Row>
         </div>
       </div>
-
-    </>
+    
   );
 }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import OffreForm from "../../components/OffreForm";
 import { Button, Col, Container, Row, ListGroup } from "react-bootstrap";
+import logo from "../../assets/logo/tasakorraLogo.png";
 
 function Ajout() {
   const handleInsertOffer = async (id, titre) => {};
@@ -18,77 +19,81 @@ function Ajout() {
     width: "200px",
   };
   return (
-    <div className="container mt-5">
-      <h1>Ajouter une offre </h1>
-      <Container className="mt-5">
-        <Row>
-          <Col md={3} style={{}}>
-            <div className="text-center">
-              <img
-                src="src\assets\logo\tasakorraLogo.png"
-                alt="Logo"
-                className="mb-3"
-                style={{ width: "80px", height: "80px" }}
-              />
-              <p>Tassakorra</p>
+    <>
+      <div
+        style={{
+          height: "100vh",
+          width: "100vw",
+        }}
+      >
+        <div className="d-flex flex-column align-items-center">
+          <Row
+            className="justify-content-center"
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Col className="text-center">
+              <h1 className="offres">Tasakorra</h1>
+            </Col>
+          </Row>
+          <Row style={{ display: "flex", justifyContent: "center" }}>
+            <img src={logo} alt="" />
+          </Row>
+          <Row style={{ display: "flex", justifyContent: "center" }}>
+            <Col>
+              {" "}
               <button
-                style={{ ...buttonStyle, marginBottom: "7%", padding: "" }}
+                style={{
+                  ...buttonStyle,
+                  marginBottom: "7%",
+                  marginLeft: "-3%",
+                }}
               >
                 <a
                   href="/liste"
                   style={{ color: "white", textDecoration: "none" }}
                 >
-                  Liste
+                  Annuler
                 </a>
               </button>
-              <button
-                style={{
-                  ...buttonStyle,
-                  marginBottom: "7%",
-                  padding: "",
-                  backgroundColor: "grey",
-                }}
-              >
-                <a
-                  href="/ajout"
-                  style={{ color: "white", textDecoration: "none" }}
-                >
-                  Ajouter
+            </Col>
+            <Col>
+              <button style={{ ...buttonStyle, marginBottom: "7%" }}>
+                <a href="/" style={{ color: "white", textDecoration: "none" }}>
+                  {" "}
+                  Se déconnecter{" "}
                 </a>
               </button>
+            </Col>
+          </Row>
 
-              <p>
-                <a href="/"> Se déconnecter </a>
-              </p>
-            </div>
-          </Col>
-          <Col md={9}>
-            <Row
-              className="justify-content-center col-12"
-              style={{
-                display: "flex",
-                justifyContent: "space-evenly",
-                textAlign: "center",
-                width: "100%",
-              }}
-            >
-              <Col
-                className="text-center"
-                style={{
-                  marginTop: "1%",
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "space-evenly",
-                  textAlign: "center",
-                }}
-              >
-                <OffreForm />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          <Row
+            className="justify-content-center"
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Col className="text-center">
+              <h1 className="offres">Ajouter une offre</h1>
+            </Col>
+          </Row>
+          <Row  className="justify-content-center"
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}>
+            <OffreForm />
+          </Row>
+
+         
+          
+        </div>
+      </div>
+      
+    </>
   );
 }
 

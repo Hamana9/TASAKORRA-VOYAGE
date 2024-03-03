@@ -56,6 +56,18 @@ const OffreForm = () => {
     }
   };
 
+  const buttonStyle = {
+    backgroundColor: "black",
+    fontFamily: "AngleciaProDisplay",
+    padding: "1% 3%", // Add padding for a button-like appearance
+    letterSpacing: "3px",
+    textDecoration: "none", // Remove default link underline
+    color: "white", // Set text color
+    display: "inline-block", // Make it inline-block to set a specific width
+    borderRadius: "20px", // Add rounded corners
+    width: "200px",
+  };
+
 
   return (
     <div className="container" id="contact">
@@ -67,7 +79,7 @@ const OffreForm = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="duree">Duree : <span style={{ color: "red" }}> *</span></label>
+          <label htmlFor="duree">Durée : <span style={{ color: "red" }}> *</span></label>
           <input type="text" id="duree" name="duree" value={formData.duree} onChange={handleChange} required />
         </div>
 
@@ -87,7 +99,7 @@ const OffreForm = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="contact">Contact:</label>
+          <label htmlFor="contact">Contact :</label>
           <textarea id="contact" name="contact" value={formData.contact} onChange={handleChange} ></textarea>
         </div>
         <div className="form-group">
@@ -96,7 +108,7 @@ const OffreForm = () => {
         </div>
 
         <div className="form-group btn">
-          <button type="submit">Envoyer</button>
+          <button type="submit" style={{...buttonStyle, backgroundColor:"green"}}>Envoyer</button>
         </div>
 
       </form>
