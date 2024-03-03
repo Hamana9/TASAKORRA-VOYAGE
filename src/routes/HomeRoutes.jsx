@@ -3,10 +3,9 @@ import Landing from "../pages/landing";
 import About from "../pages/about";
 import Offres from "../pages/offres";
 import OffresDetail from "../pages/offreDetail";
-// import Test from "../pages/test";
 import Login from "../pages/admin/login";
-// import Liste from "../pages/admin/liste";
-
+import Liste from "../pages/admin/listeOffre";
+import Ajout from "../pages/admin/ajout";
 
 const HomeRoutes = () => {
   return (
@@ -15,9 +14,10 @@ const HomeRoutes = () => {
       <Route path="apropos" element={<About />} />
       <Route path="offres" element={<Offres />} />
       <Route path="detail" element={<OffresDetail/>} />
-      {/* <Route path="test" element={<Test/>} /> */}
-       <Route path="login" element={<Login/>} />
-    {/*  <Route path="liste" element={<Liste/>} /> */}
+      {/* ADMIN */}
+      <Route path="login" element={<Login/>} />
+      <Route path="liste" element={<Liste/>} />
+      <Route path="ajout" element={<Ajout/>} />
     </Routes>
   );
 };

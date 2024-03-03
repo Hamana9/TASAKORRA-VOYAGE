@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import OffreForm from "../../components/OffreForm";
 import { Button, Col, Container, Row, ListGroup } from 'react-bootstrap';
 
-function Liste() {
-    // Supposons que vous avez une liste d'offres initiale
-    const initialOffers = [
-        { id: 1, title: 'Offre 1' },
-        { id: 2, title: 'Offre 2' },
-        { id: 3, title: 'Offre 3' }
-    ];
+function Ajout() {
 
-    const [offers, setOffers] = useState(initialOffers);
 
-    const handleDeleteOffer = (id) => {
-        // Filtrer les offres pour enlever celle avec l'ID correspondant
-        const updatedOffers = offers.filter(offer => offer.id !== id);
-        setOffers(updatedOffers);
+
+
+
+    const handleInsertOffer = async (id, titre) => {
+
     };
+
+
+
     const buttonStyle = {
         backgroundColor: "black",
         fontFamily: "AngleciaProDisplay",
@@ -26,49 +24,65 @@ function Liste() {
         color: "white", // Set text color
         display: "inline-block", // Make it inline-block to set a specific width
         borderRadius: "20px", // Add rounded corners
-        width:"200px"
-        //marginTop: "3%",
-      };
+        width: "200px"
+
+    };
     return (
         <div className="container mt-5">
             <h1>Liste des Offres</h1>
             <Container className="mt-5">
                 <Row>
-                    <Col md={3} style={{ }}>
+                    <Col md={3} style={{}}>
                         <div className="text-center">
                             <img src="src\assets\logo\tasakorraLogo.png"
                                 alt="Logo" className="mb-3" style={{ width: '80px', height: '80px' }} />
                             <p>Tassakorra</p>
                             <button style={{ ...buttonStyle, marginBottom: "7%", padding: "" }}>
                                 <a
-                                    href="#offres"
+                                    href="/liste"
                                     style={{ color: "white", textDecoration: "none" }}
                                 >
-                                   Liste
+                                    Liste
                                 </a>
                             </button>
-                            <button style={{ ...buttonStyle, marginBottom: "7%", padding: "" }}>
+                            <button style={{ ...buttonStyle, marginBottom: "7%", padding: "", backgroundColor: "grey", }}>
                                 <a
-                                    href="#offres"
+                                    href="/ajout"
                                     style={{ color: "white", textDecoration: "none" }}
                                 >
-                                Ajouter
+                                    Ajouter
                                 </a>
                             </button>
-                            
-                            <p>Se déconnecter</p>
+
+                            <p>
+                                <a href="/" > Se déconnecter </a>
+                            </p>
                         </div>
                     </Col>
                     <Col md={9}>
-                        <h1>Liste des Offres</h1>
-                        <ListGroup>
-                            {offers.map(offer => (
-                                <ListGroup.Item key={offer.id} className="d-flex justify-content-between align-items-center">
-                                    {offer.title}
-                                    <Button variant="danger" onClick={() => handleDeleteOffer(offer.id)}>Supprimer</Button>
-                                </ListGroup.Item>
-                            ))}
-                        </ListGroup>
+
+                        <Row
+                            className="justify-content-center col-12"
+                            style={{
+                                display: "flex",
+                                justifyContent: "space-evenly",
+                                textAlign: "center",
+                                width: "100%",
+                            }}
+                        >
+                            <Col
+                                className="text-center"
+                                style={{
+                                    marginTop: "1%",
+                                    width: "100%",
+                                    display: "flex",
+                                    justifyContent: "space-evenly",
+                                    textAlign: "center",
+                                }}
+                            >
+                                <offreForm />
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Container>
@@ -76,4 +90,4 @@ function Liste() {
     );
 }
 
-export default Liste;
+export default Ajout;
