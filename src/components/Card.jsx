@@ -4,7 +4,6 @@ import "./style/Card.css";
 
 
 const Card = ({ titre, duree, btnId }) => {
-  console.log(titre, duree, btnId );
 
   const [isHovered, setIsHovered] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);

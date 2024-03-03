@@ -29,7 +29,7 @@ const offres = () => {
 
     fetchOffers();
   }, [id]);
-  console.info(cardsData)
+  console.info(cardsData.titre)
 
   useEffect(() => {
     const handleResize = () => {
@@ -67,6 +67,7 @@ const offres = () => {
         }}
       >
         {/* Content of offres section  */}
+      
 
         <div className="d-flex flex-column align-items-center">
           <Row
@@ -82,6 +83,19 @@ const offres = () => {
                 Nos Offres
               </h1>
             </Col>
+          </Row>
+          <Row>
+          <div>
+          {cardsData.map((offer) => (
+        <div key={offer.id}>
+          <h2>{offer.titre}</h2>
+          {/* Afficher la description avec des sauts de ligne */}
+          {offer.description.split('\n').map((line, index) => (
+            <p key={index}>{line}</p>
+          ))}
+        </div>
+      ))}
+    </div>
           </Row>
           <Row
             className="justify-content-center"
