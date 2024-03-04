@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 
 import Image from "../assets/annonceImages/image.jpg";
@@ -10,17 +10,17 @@ const offres = () => {
   console.log("id : " + id);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [cardsData, setCardsData] = useState([]);
-  
+
   useEffect(() => {
     const fetchOffers = async () => {
       try {
         const response = await fetch("https://api-tasakorra.koyeb.app/offre");
         if (!response.ok) {
-          throw new Error('Erreur lors de la récupération des données');
+          throw new Error("Erreur lors de la récupération des données");
         }
         const data = await response.json();
         // Filtrer les offres en fonction de l'ID
-        const filteredOffers = data.filter(offer => offer.id ===  Number(id));
+        const filteredOffers = data.filter((offer) => offer.id === Number(id));
         setCardsData(filteredOffers);
       } catch (error) {
         console.error("Erreur lors de la récupération des données:", error);
@@ -29,7 +29,7 @@ const offres = () => {
 
     fetchOffers();
   }, [id]);
-  console.info(cardsData.titre)
+  console.info(cardsData.titre);
 
   useEffect(() => {
     const handleResize = () => {
@@ -67,7 +67,6 @@ const offres = () => {
         }}
       >
         {/* Content of offres section  */}
-      
 
         <div className="d-flex flex-column align-items-center">
           <Row
@@ -84,69 +83,208 @@ const offres = () => {
               </h1>
             </Col>
           </Row>
-          <Row>
-          <div>
-          {cardsData.map((offer) => (
-        <div key={offer.id}>
-          <h2>{offer.titre}</h2>
-          {/* Afficher la description avec des sauts de ligne */}
-          {offer.description.split('\n').map((line, index) => (
-            <p key={index}>{line}</p>
-          ))}
-        </div>
-      ))}
-    </div>
-          </Row>
           <Row
             className="justify-content-center"
             style={{
               display: "flex",
-              justifyContent: "space-evenly",
+              justifyContent: "center",
             }}
           >
-            <Col className="text-center">
-              <h1 className="offres" id="offres">
-                Titre de loffre :
-                {cardsData.titre}
-              </h1>
-            </Col>
-          </Row>
-          <Row
-            className="justify-content-center"
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              textAlign: "center",
-            }}
-          >
-            <Col className="text-center">
-              <p style={{ fontFamily: "AngleciaProDisplay" }}>
-                Découvrez nos offres uniques. <br /> Réservez maintenant!
-              </p>
-            </Col>
-          </Row>
-          <Row
-            className="justify-content-center"
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              textAlign: "center",
+            <div className="container" style={{ width: "70%" }}>
+              {cardsData.map((offer) => (
+                <div key={offer.id}>
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-evenly",
+                    }}
+                  >
+                    <Col className="text-center">
+                      <h1 className="offres" id="offres">
+                        {offer.titre}
+                      </h1>
+                    </Col>
+                  </Row>
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "start",
+                    }}
+                  >
+                    <Col className="text-center">
+                      <h3 className="offres" id="offres">
+                        ⏳Durée:
+                      </h3>
+                    </Col>
+                  </Row>
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontFamily: "FrankRuhl"
+                    }}
+                  >
+                    <Col className="text-center">
+                      <p className="offres" id="offres"  style={{fontSize:"1.2rem"}}>
+                        •˚∘✮🌙 {offer.duree} 🌆˙•˚∘
+                      </p>
+                    </Col>
+                  </Row>
 
-            }}
-          >
-            <Col>
-              <img
-                src={Image}
-                alt=""
-                style={{ width: "300px", height: "300px" }}
-              />
-            </Col>
-            <Col>
-              <Row>
-                <p>Duree : </p>
-              </Row>
-            </Col>
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "start",
+                    }}
+                  >
+                    <Col className="text-center">
+                      <h3 className="offres" id="offres">
+                        📍Distination:
+                      </h3>
+                    </Col>
+                  </Row>
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontFamily: "FrankRuhl"
+                    }}
+                  >
+                    <Col className="text-center">
+                      <p className="offres" id="offres" style={{fontSize:"1.5rem"}}>
+                      ✈︎{offer.location}✈︎
+                      </p>
+                    </Col>
+                  </Row>
+
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "start",
+                    }}
+                  >
+                    <Col className="text-center">
+                      <h3 className="offres" id="offres">
+                        📃Description:
+                      </h3>
+                    </Col>
+                  </Row>
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontFamily: "FrankRuhl"
+                    }}
+                  >
+                    <Col className="text-center">
+                      {offer.description.split("\n").map((line, index) => (
+                        <p key={index} style={{fontSize:"1.2rem"}}>✧˖°.{line}</p>
+                      ))}
+                    </Col>
+                  </Row>
+
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "start",
+                    }}
+                  >
+                    <Col className="text-center">
+                      <h3 className="offres" id="offres">
+                        💸Tarif:
+                      </h3>
+                    </Col>
+                  </Row>
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontFamily: "FrankRuhl"
+                    }}
+                  >
+                    <Col className="text-center">
+                      <p className="offres" id="offres" style={{fontSize:"1.2rem"}}></p>
+                    </Col>
+                  </Row>
+
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "start",
+                    }}
+                  >
+                    <Col className="text-center">
+                      <h3 className="offres" id="offres">
+                        📞Contacte:
+                      </h3>
+                    </Col>
+                  </Row>
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontFamily: "FrankRuhl"
+                    }}
+                  >
+                    <Col className="text-center">
+                      <p className="offres" id="offres">
+                        {offer.contact.split("\n").map((line, index) => (
+                          <p key={index} style={{fontSize:"1.2rem"}}>✨{line}</p>
+                        ))}
+                      </p>
+                    </Col>
+                  </Row>
+
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "start",
+                    }}
+                  >
+                    <Col className="text-center">
+                      <h3 className="offres" id="offres">
+                        💭Remarques:
+                      </h3>
+                    </Col>
+                  </Row>
+                  <Row
+                    className="justify-content-center"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontFamily: "FrankRuhl"
+                    }}
+                  >
+                    <Col className="text-center">
+                      <p className="offres" id="offres" style={{fontSize:"1.2rem"}}>
+                        {offer.remarque.split("\n").map((line, index) => (
+                          <span key={index}>
+                            {line}
+                            <br />
+                          </span>
+                        ))}
+                      </p>
+                    </Col>
+                  </Row>
+                </div>
+              ))}
+            </div>
           </Row>
+
+          
+          
         </div>
         <div
           className="d-flex flex-column align-items-center"

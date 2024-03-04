@@ -5,6 +5,7 @@
 .contact-area section {
             padding: 30px 0;
            /* min-height: 100vh;*/
+           
         }
         .contact-area ul {
             margin: 0;
@@ -14,6 +15,7 @@
 .contact-area {
     border-bottom: 1px solid red;
     margin-top: 5%;
+    
     
 }
 
